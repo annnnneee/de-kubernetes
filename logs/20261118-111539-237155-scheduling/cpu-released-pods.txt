@@ -1,0 +1,2 @@
+NAME                          READY   STATUS    RESTARTS   AGE   IP            NODE                          NOMINATED NODE   READINESS GATES
+waiting-111539-237155-clpsg   1/1     Running   0          7s    10.244.0.41   de-kubernetes-control-plane   <none>           <none>

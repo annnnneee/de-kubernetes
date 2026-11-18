@@ -1,0 +1,55 @@
+{
+  "allocatable_mcpu": 8000,
+  "requested_before_mcpu": 1350,
+  "request_per_job_mcpu": 4000,
+  "pending": {
+    "lastProbeTime": null,
+    "lastTransitionTime": "2026-11-18T08:15:46Z",
+    "message": "0/1 nodes are available: 1 Insufficient cpu. no new claims to deallocate, preemption: 0/1 nodes are available: 1 No preemption victims found for incoming pod.",
+    "observedGeneration": 1,
+    "reason": "Unschedulable",
+    "status": "False",
+    "type": "PodScheduled"
+  },
+  "started_after_release": true,
+  "victim_uid": "3d6b6746-8837-43f6-898c-c01ef0947f2a",
+  "preemption_events": [
+    {
+      "action": "Preempting",
+      "apiVersion": "v1",
+      "eventTime": "2026-11-18T08:16:18.641685Z",
+      "firstTimestamp": null,
+      "involvedObject": {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "name": "low-111539-237155-c4gpq",
+        "namespace": "de-kubernetes",
+        "resourceVersion": "4236",
+        "uid": "3d6b6746-8837-43f6-898c-c01ef0947f2a"
+      },
+      "kind": "Event",
+      "lastTimestamp": null,
+      "message": "Preempted by pod 6ccf5d7c-9c4d-4bc6-88d6-2c2ddd3aa9b5 on node de-kubernetes-control-plane",
+      "metadata": {
+        "creationTimestamp": "2026-11-18T08:16:18Z",
+        "name": "low-111539-237155-c4gpq.18e915b18365aecc",
+        "namespace": "de-kubernetes",
+        "resourceVersion": "4251",
+        "uid": "a980b1b4-a4df-42ab-8d60-740aa1b1ef98"
+      },
+      "reason": "Preempted",
+      "related": {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "name": "high-111539-237155-xllkv",
+        "namespace": "de-kubernetes",
+        "resourceVersion": "4243",
+        "uid": "6ccf5d7c-9c4d-4bc6-88d6-2c2ddd3aa9b5"
+      },
+      "reportingComponent": "default-scheduler",
+      "reportingInstance": "default-scheduler-de-kubernetes-control-plane",
+      "source": {},
+      "type": "Normal"
+    }
+  ]
+}

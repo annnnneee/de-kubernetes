@@ -1,0 +1,5 @@
+NAME       READY   STATUS    RESTARTS   AGE   IP            NODE                          NOMINATED NODE   READINESS GATES
+rustfs-0   1/1     Running   0          14m   10.244.0.18   de-kubernetes-control-plane   <none>           <none>
+rustfs-1   1/1     Running   0          14m   10.244.0.16   de-kubernetes-control-plane   <none>           <none>
+rustfs-2   1/1     Running   0          14m   10.244.0.15   de-kubernetes-control-plane   <none>           <none>
+rustfs-3   1/1     Running   0          14m   10.244.0.17   de-kubernetes-control-plane   <none>           <none>

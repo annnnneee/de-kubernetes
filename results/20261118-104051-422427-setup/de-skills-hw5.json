@@ -1,0 +1,9 @@
+[
+  {
+    "Id": "sha256:80eeff99be34cc47f74778d7a1e5b5262d61d9adaccbcef055373dcb321e53c4",
+    "RepoDigests": [
+      "de-skills@sha256:80eeff99be34cc47f74778d7a1e5b5262d61d9adaccbcef055373dcb321e53c4"
+    ],
+    "Architecture": "arm64"
+  }
+]

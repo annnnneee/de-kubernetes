@@ -1,0 +1,246 @@
+{
+  "apiVersion": "v1",
+  "items": [
+    {
+      "apiVersion": "batch/v1",
+      "kind": "Job",
+      "metadata": {
+        "annotations": {
+          "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"batch/v1\",\"kind\":\"Job\",\"metadata\":{\"annotations\":{},\"name\":\"oom-103813-339720\",\"namespace\":\"de-kubernetes\"},\"spec\":{\"activeDeadlineSeconds\":600,\"backoffLimit\":0,\"template\":{\"metadata\":{\"labels\":{\"homework\":\"kubernetes\"}},\"spec\":{\"containers\":[{\"args\":[\"local\"],\"image\":\"de-skills:hw5\",\"imagePullPolicy\":\"Never\",\"name\":\"calculate\",\"resources\":{\"limits\":{\"cpu\":\"1\",\"memory\":\"64Mi\"},\"requests\":{\"cpu\":\"250m\",\"memory\":\"32Mi\"}},\"volumeMounts\":[{\"mountPath\":\"/input/vacancies.csv\",\"name\":\"input\",\"readOnly\":true}]}],\"restartPolicy\":\"Never\",\"volumes\":[{\"hostPath\":{\"path\":\"/dataset/vacancies.csv\",\"type\":\"File\"},\"name\":\"input\"}]}}}}\n"
+        },
+        "creationTimestamp": "2026-11-18T07:38:13Z",
+        "generation": 1,
+        "labels": {
+          "batch.kubernetes.io/controller-uid": "d36fe94e-bc0b-4fbc-b338-9a0e2f76e58c",
+          "batch.kubernetes.io/job-name": "oom-103813-339720",
+          "controller-uid": "d36fe94e-bc0b-4fbc-b338-9a0e2f76e58c",
+          "homework": "kubernetes",
+          "job-name": "oom-103813-339720"
+        },
+        "name": "oom-103813-339720",
+        "namespace": "de-kubernetes",
+        "resourceVersion": "660",
+        "uid": "d36fe94e-bc0b-4fbc-b338-9a0e2f76e58c"
+      },
+      "spec": {
+        "activeDeadlineSeconds": 600,
+        "backoffLimit": 0,
+        "completionMode": "NonIndexed",
+        "completions": 1,
+        "manualSelector": false,
+        "parallelism": 1,
+        "podReplacementPolicy": "TerminatingOrFailed",
+        "selector": {
+          "matchLabels": {
+            "batch.kubernetes.io/controller-uid": "d36fe94e-bc0b-4fbc-b338-9a0e2f76e58c"
+          }
+        },
+        "suspend": false,
+        "template": {
+          "metadata": {
+            "labels": {
+              "batch.kubernetes.io/controller-uid": "d36fe94e-bc0b-4fbc-b338-9a0e2f76e58c",
+              "batch.kubernetes.io/job-name": "oom-103813-339720",
+              "controller-uid": "d36fe94e-bc0b-4fbc-b338-9a0e2f76e58c",
+              "homework": "kubernetes",
+              "job-name": "oom-103813-339720"
+            }
+          },
+          "spec": {
+            "containers": [
+              {
+                "args": [
+                  "local"
+                ],
+                "image": "de-skills:hw5",
+                "imagePullPolicy": "Never",
+                "name": "calculate",
+                "resources": {
+                  "limits": {
+                    "cpu": "1",
+                    "memory": "64Mi"
+                  },
+                  "requests": {
+                    "cpu": "250m",
+                    "memory": "32Mi"
+                  }
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File",
+                "volumeMounts": [
+                  {
+                    "mountPath": "/input/vacancies.csv",
+                    "name": "input",
+                    "readOnly": true
+                  }
+                ]
+              }
+            ],
+            "dnsPolicy": "ClusterFirst",
+            "restartPolicy": "Never",
+            "schedulerName": "default-scheduler",
+            "securityContext": {},
+            "terminationGracePeriodSeconds": 30,
+            "volumes": [
+              {
+                "hostPath": {
+                  "path": "/dataset/vacancies.csv",
+                  "type": "File"
+                },
+                "name": "input"
+              }
+            ]
+          }
+        }
+      },
+      "status": {
+        "conditions": [
+          {
+            "lastProbeTime": "2026-11-18T07:39:09Z",
+            "lastTransitionTime": "2026-11-18T07:39:09Z",
+            "message": "Job has reached the specified backoff limit",
+            "reason": "BackoffLimitExceeded",
+            "status": "True",
+            "type": "FailureTarget"
+          },
+          {
+            "lastProbeTime": "2026-11-18T07:39:09Z",
+            "lastTransitionTime": "2026-11-18T07:39:09Z",
+            "message": "Job has reached the specified backoff limit",
+            "reason": "BackoffLimitExceeded",
+            "status": "True",
+            "type": "Failed"
+          }
+        ],
+        "failed": 1,
+        "ready": 0,
+        "startTime": "2026-11-18T07:38:13Z",
+        "terminating": 0,
+        "uncountedTerminatedPods": {}
+      }
+    },
+    {
+      "apiVersion": "batch/v1",
+      "kind": "Job",
+      "metadata": {
+        "annotations": {
+          "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"batch/v1\",\"kind\":\"Job\",\"metadata\":{\"annotations\":{},\"name\":\"profile-103813-339720\",\"namespace\":\"de-kubernetes\"},\"spec\":{\"activeDeadlineSeconds\":600,\"backoffLimit\":0,\"template\":{\"metadata\":{\"labels\":{\"homework\":\"kubernetes\"}},\"spec\":{\"containers\":[{\"args\":[\"local\"],\"image\":\"de-skills:hw5\",\"imagePullPolicy\":\"Never\",\"name\":\"calculate\",\"resources\":{\"limits\":{\"cpu\":\"1\",\"memory\":\"512Mi\"},\"requests\":{\"cpu\":\"250m\",\"memory\":\"32Mi\"}},\"volumeMounts\":[{\"mountPath\":\"/input/vacancies.csv\",\"name\":\"input\",\"readOnly\":true}]}],\"restartPolicy\":\"Never\",\"volumes\":[{\"hostPath\":{\"path\":\"/dataset/vacancies.csv\",\"type\":\"File\"},\"name\":\"input\"}]}}}}\n"
+        },
+        "creationTimestamp": "2026-11-18T07:39:10Z",
+        "generation": 1,
+        "labels": {
+          "batch.kubernetes.io/controller-uid": "f7a5cc7d-94de-455f-8092-37461f78287a",
+          "batch.kubernetes.io/job-name": "profile-103813-339720",
+          "controller-uid": "f7a5cc7d-94de-455f-8092-37461f78287a",
+          "homework": "kubernetes",
+          "job-name": "profile-103813-339720"
+        },
+        "name": "profile-103813-339720",
+        "namespace": "de-kubernetes",
+        "resourceVersion": "699",
+        "uid": "f7a5cc7d-94de-455f-8092-37461f78287a"
+      },
+      "spec": {
+        "activeDeadlineSeconds": 600,
+        "backoffLimit": 0,
+        "completionMode": "NonIndexed",
+        "completions": 1,
+        "manualSelector": false,
+        "parallelism": 1,
+        "podReplacementPolicy": "TerminatingOrFailed",
+        "selector": {
+          "matchLabels": {
+            "batch.kubernetes.io/controller-uid": "f7a5cc7d-94de-455f-8092-37461f78287a"
+          }
+        },
+        "suspend": false,
+        "template": {
+          "metadata": {
+            "labels": {
+              "batch.kubernetes.io/controller-uid": "f7a5cc7d-94de-455f-8092-37461f78287a",
+              "batch.kubernetes.io/job-name": "profile-103813-339720",
+              "controller-uid": "f7a5cc7d-94de-455f-8092-37461f78287a",
+              "homework": "kubernetes",
+              "job-name": "profile-103813-339720"
+            }
+          },
+          "spec": {
+            "containers": [
+              {
+                "args": [
+                  "local"
+                ],
+                "image": "de-skills:hw5",
+                "imagePullPolicy": "Never",
+                "name": "calculate",
+                "resources": {
+                  "limits": {
+                    "cpu": "1",
+                    "memory": "512Mi"
+                  },
+                  "requests": {
+                    "cpu": "250m",
+                    "memory": "32Mi"
+                  }
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File",
+                "volumeMounts": [
+                  {
+                    "mountPath": "/input/vacancies.csv",
+                    "name": "input",
+                    "readOnly": true
+                  }
+                ]
+              }
+            ],
+            "dnsPolicy": "ClusterFirst",
+            "restartPolicy": "Never",
+            "schedulerName": "default-scheduler",
+            "securityContext": {},
+            "terminationGracePeriodSeconds": 30,
+            "volumes": [
+              {
+                "hostPath": {
+                  "path": "/dataset/vacancies.csv",
+                  "type": "File"
+                },
+                "name": "input"
+              }
+            ]
+          }
+        }
+      },
+      "status": {
+        "completionTime": "2026-11-18T07:39:26Z",
+        "conditions": [
+          {
+            "lastProbeTime": "2026-11-18T07:39:26Z",
+            "lastTransitionTime": "2026-11-18T07:39:26Z",
+            "message": "Reached expected number of succeeded pods",
+            "reason": "CompletionsReached",
+            "status": "True",
+            "type": "SuccessCriteriaMet"
+          },
+          {
+            "lastProbeTime": "2026-11-18T07:39:26Z",
+            "lastTransitionTime": "2026-11-18T07:39:26Z",
+            "message": "Reached expected number of succeeded pods",
+            "reason": "CompletionsReached",
+            "status": "True",
+            "type": "Complete"
+          }
+        ],
+        "ready": 0,
+        "startTime": "2026-11-18T07:39:10Z",
+        "succeeded": 1,
+        "terminating": 0,
+        "uncountedTerminatedPods": {}
+      }
+    }
+  ],
+  "kind": "List",
+  "metadata": {
+    "resourceVersion": ""
+  }
+}

@@ -1,0 +1,5 @@
+NAME                        READY   STATUS      RESTARTS   AGE   IP            NODE                          NOMINATED NODE   READINESS GATES
+map-104334-248616-0-z9pgv   0/1     Completed   0          25s   10.244.0.20   de-kubernetes-control-plane   <none>           <none>
+map-104334-248616-1-8g85g   0/1     Completed   0          25s   10.244.0.19   de-kubernetes-control-plane   <none>           <none>
+map-104334-248616-2-rqg2d   0/1     Completed   0          13s   10.244.0.21   de-kubernetes-control-plane   <none>           <none>
+map-104334-248616-3-fbsld   0/1     Completed   0          13s   10.244.0.22   de-kubernetes-control-plane   <none>           <none>

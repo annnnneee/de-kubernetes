@@ -1,0 +1,2 @@
+NAME                          READY   STATUS      RESTARTS   AGE   IP            NODE                          NOMINATED NODE   READINESS GATES
+profile-110027-096036-kcrvc   0/1     Completed   0          33s   10.244.0.30   de-kubernetes-control-plane   <none>           <none>

@@ -1,0 +1,47 @@
+время: 2026-11-18T10:42:12.926675+03:00
+запуск: 20261118-104212-925772-storage
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes apply -f manifests/rustfs.yaml
+service/rustfs-headless created
+service/rustfs created
+statefulset.apps/rustfs created
+Warning: spec.SessionAffinity is ignored for headless services
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes rollout status statefulset/rustfs -n de-kubernetes --timeout=300s
+Waiting for 4 pods to be ready...
+Waiting for 4 pods to be ready...
+Waiting for 3 pods to be ready...
+Waiting for 2 pods to be ready...
+Waiting for 1 pods to be ready...
+partitioned roll out complete: 4 new pods have been updated...
+загрузка исходного CSV и четырёх частей в RustFS внутри Kubernetes...
+input/part-0.csv строк: 57347
+input/part-1.csv строк: 57347
+input/part-2.csv строк: 57347
+input/part-3.csv строк: 57347
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes get pods -n de-kubernetes -o wide
+NAME                          READY   STATUS      RESTARTS   AGE     IP            NODE                          NOMINATED NODE   READINESS GATES
+oom-103813-339720-xmjgs       0/1     OOMKilled   0          5m20s   10.244.0.5    de-kubernetes-control-plane   <none>           <none>
+oom-104113-365097-2jq5f       0/1     OOMKilled   0          2m20s   10.244.0.8    de-kubernetes-control-plane   <none>           <none>
+profile-103813-339720-h85v7   0/1     Completed   0          4m23s   10.244.0.6    de-kubernetes-control-plane   <none>           <none>
+profile-104113-365097-lkqds   0/1     Completed   0          2m15s   10.244.0.9    de-kubernetes-control-plane   <none>           <none>
+rustfs-0                      1/1     Running     0          80s     10.244.0.18   de-kubernetes-control-plane   <none>           <none>
+rustfs-1                      1/1     Running     0          80s     10.244.0.16   de-kubernetes-control-plane   <none>           <none>
+rustfs-2                      1/1     Running     0          80s     10.244.0.15   de-kubernetes-control-plane   <none>           <none>
+rustfs-3                      1/1     Running     0          80s     10.244.0.17   de-kubernetes-control-plane   <none>           <none>
+tuned-103813-339720-w2cwj     0/1     Completed   0          4m5s    10.244.0.7    de-kubernetes-control-plane   <none>           <none>
+tuned-104113-365097-xhvqs     0/1     Completed   0          2m      10.244.0.10   de-kubernetes-control-plane   <none>           <none>
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes get pvc,svc,statefulset -n de-kubernetes
+NAME                                  STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   VOLUMEATTRIBUTESCLASS   AGE
+persistentvolumeclaim/data-rustfs-0   Bound    pvc-7db8fd31-31be-4c0e-b493-1f9ef994b493   2Gi        RWO            standard       <unset>                 80s
+persistentvolumeclaim/data-rustfs-1   Bound    pvc-4ae86f4a-ca10-450a-9fd8-80cb79f6101e   2Gi        RWO            standard       <unset>                 80s
+persistentvolumeclaim/data-rustfs-2   Bound    pvc-c70f10b3-c164-4b12-8b7a-8098525e7abd   2Gi        RWO            standard       <unset>                 80s
+persistentvolumeclaim/data-rustfs-3   Bound    pvc-e705aaf0-6ef6-4802-8ba8-4819e59939f6   2Gi        RWO            standard       <unset>                 80s
+
+NAME                      TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
+service/rustfs            NodePort    10.96.182.104   <none>        9000:30090/TCP   80s
+service/rustfs-headless   ClusterIP   None            <none>        9000/TCP         80s
+
+NAME                      READY   AGE
+statefulset.apps/rustfs   4/4     80s
+S3: четыре узла RustFS и четыре PVC; все загруженные объекты проверены по SHA-256
+результаты: results/20261118-104212-925772-storage
+журнал: logs/20261118-104212-925772-storage

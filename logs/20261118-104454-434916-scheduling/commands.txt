@@ -1,0 +1,102 @@
+время: 2026-11-18T10:44:54.435735+03:00
+запуск: 20261118-104454-434916-scheduling
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes apply -f manifests/priorities.yaml
+priorityclass.scheduling.k8s.io/de-low created
+priorityclass.scheduling.k8s.io/de-high created
+CPU узла: 8000m; занято заявками: 1350m; свободно: 6650m; каждая задача: 4000m
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes apply -f -
+job.batch/occupy-104454-434916 created
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes apply -f -
+job.batch/waiting-104454-434916 created
+ожидание: 0/1 nodes are available: 1 Insufficient cpu. no new claims to deallocate, preemption: 0/1 nodes are available: 1 No preemption victims found for incoming pod.
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes get pods -n de-kubernetes -o wide
+NAME                          READY   STATUS      RESTARTS   AGE     IP            NODE                          NOMINATED NODE   READINESS GATES
+map-104334-248616-0-z9pgv     0/1     Completed   0          83s     10.244.0.20   de-kubernetes-control-plane   <none>           <none>
+map-104334-248616-1-8g85g     0/1     Completed   0          83s     10.244.0.19   de-kubernetes-control-plane   <none>           <none>
+map-104334-248616-2-rqg2d     0/1     Completed   0          71s     10.244.0.21   de-kubernetes-control-plane   <none>           <none>
+map-104334-248616-3-fbsld     0/1     Completed   0          71s     10.244.0.22   de-kubernetes-control-plane   <none>           <none>
+occupy-104454-434916-w4pcl    1/1     Running     0          3s      10.244.0.25   de-kubernetes-control-plane   <none>           <none>
+oom-103813-339720-xmjgs       0/1     OOMKilled   0          6m44s   10.244.0.5    de-kubernetes-control-plane   <none>           <none>
+oom-104113-365097-2jq5f       0/1     OOMKilled   0          3m44s   10.244.0.8    de-kubernetes-control-plane   <none>           <none>
+profile-103813-339720-h85v7   0/1     Completed   0          5m47s   10.244.0.6    de-kubernetes-control-plane   <none>           <none>
+profile-104113-365097-lkqds   0/1     Completed   0          3m39s   10.244.0.9    de-kubernetes-control-plane   <none>           <none>
+reduce-104334-248616-jn7mv    0/1     Completed   0          58s     10.244.0.23   de-kubernetes-control-plane   <none>           <none>
+rustfs-0                      1/1     Running     0          2m44s   10.244.0.18   de-kubernetes-control-plane   <none>           <none>
+rustfs-1                      1/1     Running     0          2m44s   10.244.0.16   de-kubernetes-control-plane   <none>           <none>
+rustfs-2                      1/1     Running     0          2m44s   10.244.0.15   de-kubernetes-control-plane   <none>           <none>
+rustfs-3                      1/1     Running     0          2m44s   10.244.0.17   de-kubernetes-control-plane   <none>           <none>
+tuned-103813-339720-w2cwj     0/1     Completed   0          5m29s   10.244.0.7    de-kubernetes-control-plane   <none>           <none>
+tuned-104113-365097-xhvqs     0/1     Completed   0          3m24s   10.244.0.10   de-kubernetes-control-plane   <none>           <none>
+waiting-104454-434916-5hr57   0/1     Pending     0          0s      <none>        <none>                        <none>           <none>
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes delete job occupy-104454-434916 -n de-kubernetes --wait=true
+job.batch "occupy-104454-434916" deleted from de-kubernetes namespace
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes get pods -n de-kubernetes -o wide
+NAME                          READY   STATUS      RESTARTS   AGE     IP            NODE                          NOMINATED NODE   READINESS GATES
+map-104334-248616-0-z9pgv     0/1     Completed   0          88s     10.244.0.20   de-kubernetes-control-plane   <none>           <none>
+map-104334-248616-1-8g85g     0/1     Completed   0          88s     10.244.0.19   de-kubernetes-control-plane   <none>           <none>
+map-104334-248616-2-rqg2d     0/1     Completed   0          76s     10.244.0.21   de-kubernetes-control-plane   <none>           <none>
+map-104334-248616-3-fbsld     0/1     Completed   0          76s     10.244.0.22   de-kubernetes-control-plane   <none>           <none>
+oom-103813-339720-xmjgs       0/1     OOMKilled   0          6m49s   10.244.0.5    de-kubernetes-control-plane   <none>           <none>
+oom-104113-365097-2jq5f       0/1     OOMKilled   0          3m49s   10.244.0.8    de-kubernetes-control-plane   <none>           <none>
+profile-103813-339720-h85v7   0/1     Completed   0          5m52s   10.244.0.6    de-kubernetes-control-plane   <none>           <none>
+profile-104113-365097-lkqds   0/1     Completed   0          3m44s   10.244.0.9    de-kubernetes-control-plane   <none>           <none>
+reduce-104334-248616-jn7mv    0/1     Completed   0          63s     10.244.0.23   de-kubernetes-control-plane   <none>           <none>
+rustfs-0                      1/1     Running     0          2m49s   10.244.0.18   de-kubernetes-control-plane   <none>           <none>
+rustfs-1                      1/1     Running     0          2m49s   10.244.0.16   de-kubernetes-control-plane   <none>           <none>
+rustfs-2                      1/1     Running     0          2m49s   10.244.0.15   de-kubernetes-control-plane   <none>           <none>
+rustfs-3                      1/1     Running     0          2m49s   10.244.0.17   de-kubernetes-control-plane   <none>           <none>
+tuned-103813-339720-w2cwj     0/1     Completed   0          5m34s   10.244.0.7    de-kubernetes-control-plane   <none>           <none>
+tuned-104113-365097-xhvqs     0/1     Completed   0          3m29s   10.244.0.10   de-kubernetes-control-plane   <none>           <none>
+waiting-104454-434916-5hr57   1/1     Running     0          5s      10.244.0.26   de-kubernetes-control-plane   <none>           <none>
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes wait --for=condition=complete job/waiting-104454-434916 -n de-kubernetes --timeout=90s
+job.batch/waiting-104454-434916 condition met
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes apply -f -
+job.batch/low-104454-434916 created
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes get pods -n de-kubernetes -o wide
+NAME                          READY   STATUS      RESTARTS   AGE     IP            NODE                          NOMINATED NODE   READINESS GATES
+low-104454-434916-d6qnv       1/1     Running     0          3s      10.244.0.27   de-kubernetes-control-plane   <none>           <none>
+map-104334-248616-0-z9pgv     0/1     Completed   0          113s    10.244.0.20   de-kubernetes-control-plane   <none>           <none>
+map-104334-248616-1-8g85g     0/1     Completed   0          113s    10.244.0.19   de-kubernetes-control-plane   <none>           <none>
+map-104334-248616-2-rqg2d     0/1     Completed   0          101s    10.244.0.21   de-kubernetes-control-plane   <none>           <none>
+map-104334-248616-3-fbsld     0/1     Completed   0          101s    10.244.0.22   de-kubernetes-control-plane   <none>           <none>
+oom-103813-339720-xmjgs       0/1     OOMKilled   0          7m14s   10.244.0.5    de-kubernetes-control-plane   <none>           <none>
+oom-104113-365097-2jq5f       0/1     OOMKilled   0          4m14s   10.244.0.8    de-kubernetes-control-plane   <none>           <none>
+profile-103813-339720-h85v7   0/1     Completed   0          6m17s   10.244.0.6    de-kubernetes-control-plane   <none>           <none>
+profile-104113-365097-lkqds   0/1     Completed   0          4m9s    10.244.0.9    de-kubernetes-control-plane   <none>           <none>
+reduce-104334-248616-jn7mv    0/1     Completed   0          88s     10.244.0.23   de-kubernetes-control-plane   <none>           <none>
+rustfs-0                      1/1     Running     0          3m14s   10.244.0.18   de-kubernetes-control-plane   <none>           <none>
+rustfs-1                      1/1     Running     0          3m14s   10.244.0.16   de-kubernetes-control-plane   <none>           <none>
+rustfs-2                      1/1     Running     0          3m14s   10.244.0.15   de-kubernetes-control-plane   <none>           <none>
+rustfs-3                      1/1     Running     0          3m14s   10.244.0.17   de-kubernetes-control-plane   <none>           <none>
+tuned-103813-339720-w2cwj     0/1     Completed   0          5m59s   10.244.0.7    de-kubernetes-control-plane   <none>           <none>
+tuned-104113-365097-xhvqs     0/1     Completed   0          3m54s   10.244.0.10   de-kubernetes-control-plane   <none>           <none>
+waiting-104454-434916-5hr57   0/1     Completed   0          30s     10.244.0.26   de-kubernetes-control-plane   <none>           <none>
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes apply -f -
+job.batch/high-104454-434916 created
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes get pods -n de-kubernetes -o wide
+NAME                          READY   STATUS      RESTARTS   AGE     IP            NODE                          NOMINATED NODE   READINESS GATES
+high-104454-434916-zmsrs      1/1     Running     0          5s      10.244.0.28   de-kubernetes-control-plane   <none>           <none>
+map-104334-248616-0-z9pgv     0/1     Completed   0          118s    10.244.0.20   de-kubernetes-control-plane   <none>           <none>
+map-104334-248616-1-8g85g     0/1     Completed   0          118s    10.244.0.19   de-kubernetes-control-plane   <none>           <none>
+map-104334-248616-2-rqg2d     0/1     Completed   0          106s    10.244.0.21   de-kubernetes-control-plane   <none>           <none>
+map-104334-248616-3-fbsld     0/1     Completed   0          106s    10.244.0.22   de-kubernetes-control-plane   <none>           <none>
+oom-103813-339720-xmjgs       0/1     OOMKilled   0          7m19s   10.244.0.5    de-kubernetes-control-plane   <none>           <none>
+oom-104113-365097-2jq5f       0/1     OOMKilled   0          4m19s   10.244.0.8    de-kubernetes-control-plane   <none>           <none>
+profile-103813-339720-h85v7   0/1     Completed   0          6m22s   10.244.0.6    de-kubernetes-control-plane   <none>           <none>
+profile-104113-365097-lkqds   0/1     Completed   0          4m14s   10.244.0.9    de-kubernetes-control-plane   <none>           <none>
+reduce-104334-248616-jn7mv    0/1     Completed   0          93s     10.244.0.23   de-kubernetes-control-plane   <none>           <none>
+rustfs-0                      1/1     Running     0          3m19s   10.244.0.18   de-kubernetes-control-plane   <none>           <none>
+rustfs-1                      1/1     Running     0          3m19s   10.244.0.16   de-kubernetes-control-plane   <none>           <none>
+rustfs-2                      1/1     Running     0          3m19s   10.244.0.15   de-kubernetes-control-plane   <none>           <none>
+rustfs-3                      1/1     Running     0          3m19s   10.244.0.17   de-kubernetes-control-plane   <none>           <none>
+tuned-103813-339720-w2cwj     0/1     Completed   0          6m4s    10.244.0.7    de-kubernetes-control-plane   <none>           <none>
+tuned-104113-365097-xhvqs     0/1     Completed   0          3m59s   10.244.0.10   de-kubernetes-control-plane   <none>           <none>
+waiting-104454-434916-5hr57   0/1     Completed   0          35s     10.244.0.26   de-kubernetes-control-plane   <none>           <none>
+вытеснен: low-104454-434916-d6qnv приоритет 100; новая задача: приоритет 10000
+событие: Preempted Preempted by pod f7e3e3f2-4fff-416f-80bd-0df77ad76faf on node de-kubernetes-control-plane
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes wait --for=condition=complete job/high-104454-434916 -n de-kubernetes --timeout=90s
+job.batch/high-104454-434916 condition met
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes delete job low-104454-434916 -n de-kubernetes --wait=true
+job.batch "low-104454-434916" deleted from de-kubernetes namespace
+результаты: results/20261118-104454-434916-scheduling
+журнал: logs/20261118-104454-434916-scheduling

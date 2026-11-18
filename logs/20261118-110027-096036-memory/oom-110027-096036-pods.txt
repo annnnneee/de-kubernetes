@@ -1,0 +1,2 @@
+NAME                      READY   STATUS      RESTARTS   AGE   IP            NODE                          NOMINATED NODE   READINESS GATES
+oom-110027-096036-bxg6q   0/1     OOMKilled   0          8s    10.244.0.29   de-kubernetes-control-plane   <none>           <none>

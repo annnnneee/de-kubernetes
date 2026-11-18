@@ -1,0 +1,72 @@
+[
+  {
+    "skills": [
+      "postgresql",
+      "python"
+    ],
+    "frequency": 1304
+  },
+  {
+    "skills": [
+      "git",
+      "python"
+    ],
+    "frequency": 905
+  },
+  {
+    "skills": [
+      "docker",
+      "python"
+    ],
+    "frequency": 792
+  },
+  {
+    "skills": [
+      "python",
+      "sql"
+    ],
+    "frequency": 773
+  },
+  {
+    "skills": [
+      "django framework",
+      "python"
+    ],
+    "frequency": 722
+  },
+  {
+    "skills": [
+      "linux",
+      "python"
+    ],
+    "frequency": 660
+  },
+  {
+    "skills": [
+      "fastapi",
+      "python"
+    ],
+    "frequency": 508
+  },
+  {
+    "skills": [
+      "git",
+      "postgresql"
+    ],
+    "frequency": 494
+  },
+  {
+    "skills": [
+      "docker",
+      "postgresql"
+    ],
+    "frequency": 484
+  },
+  {
+    "skills": [
+      "python",
+      "redis"
+    ],
+    "frequency": 457
+  }
+]

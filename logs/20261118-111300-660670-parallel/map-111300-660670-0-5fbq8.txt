@@ -1,0 +1,74 @@
+Name:             map-111300-660670-0-5fbq8
+Namespace:        de-kubernetes
+Priority:         0
+Service Account:  default
+Node:             de-kubernetes-control-plane/172.29.0.2
+Start Time:       Wed, 18 Nov 2026 11:13:03 +0300
+Labels:           batch.kubernetes.io/controller-uid=11fe1fd3-0d92-4a06-b74b-90eecc80e4bb
+                  batch.kubernetes.io/job-completion-index=0
+                  batch.kubernetes.io/job-name=map-111300-660670
+                  controller-uid=11fe1fd3-0d92-4a06-b74b-90eecc80e4bb
+                  homework=kubernetes
+                  job-name=map-111300-660670
+Annotations:      batch.kubernetes.io/job-completion-index: 0
+Status:           Succeeded
+IP:               10.244.0.35
+IPs:
+  IP:           10.244.0.35
+Controlled By:  Job/map-111300-660670
+Containers:
+  calculate:
+    Container ID:  containerd://80a45803122740a83541a33694ce32fa4ae52fe2e55f4d686575441223458316
+    Image:         de-skills:hw5
+    Image ID:      sha256:334cae2bfaf416a9d670336c2a5e87f140f49f24192f46a4dc5d902d68acdb83
+    Port:          <none>
+    Host Port:     <none>
+    Args:
+      map
+    State:          Terminated
+      Reason:       Completed
+      Exit Code:    0
+      Started:      Wed, 18 Nov 2026 11:13:05 +0300
+      Finished:     Wed, 18 Nov 2026 11:13:25 +0300
+    Ready:          False
+    Restart Count:  0
+    Limits:
+      cpu:     1
+      memory:  1088Mi
+    Requests:
+      cpu:     250m
+      memory:  858Mi
+    Environment:
+      S3_ENDPOINT:           http://rustfs.de-kubernetes.svc.cluster.local:9000
+      S3_BUCKET:             hh-lake
+      S3_ACCESS_KEY:         <set to the key 'access-key' in secret 's3-credentials'>  Optional: false
+      S3_SECRET_KEY:         <set to the key 'secret-key' in secret 's3-credentials'>  Optional: false
+      RUN_PREFIX:            runs/20261118-111300-660670-parallel
+      JOB_COMPLETION_INDEX:   (v1:metadata.labels['batch.kubernetes.io/job-completion-index'])
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-kt6sg (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   False 
+  Initialized                 True 
+  Ready                       False 
+  ContainersReady             False 
+  PodScheduled                True 
+Volumes:
+  kube-api-access-kt6sg:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   Burstable
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  46s   default-scheduler  Successfully assigned de-kubernetes/map-111300-660670-0-5fbq8 to de-kubernetes-control-plane
+  Normal  Pulled     45s   kubelet            Container image "de-skills:hw5" already present on machine
+  Normal  Created    44s   kubelet            Created container: calculate
+  Normal  Started    44s   kubelet            Started container calculate

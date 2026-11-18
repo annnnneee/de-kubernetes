@@ -1,0 +1,26 @@
+время: 2026-11-18T10:56:27.400520+03:00
+запуск: 20261118-105627-399759-status
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes get nodes -o wide
+NAME                          STATUS   ROLES           AGE   VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE                         KERNEL-VERSION     CONTAINER-RUNTIME
+de-kubernetes-control-plane   Ready    control-plane   19m   v1.34.0   172.29.0.2    <none>        Debian GNU/Linux 12 (bookworm)   6.12.76-linuxkit   containerd://2.1.3
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes get pvc,svc,statefulset -n de-kubernetes
+NAME                                  STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   VOLUMEATTRIBUTESCLASS   AGE
+persistentvolumeclaim/data-rustfs-0   Bound    pvc-7db8fd31-31be-4c0e-b493-1f9ef994b493   2Gi        RWO            standard       <unset>                 14m
+persistentvolumeclaim/data-rustfs-1   Bound    pvc-4ae86f4a-ca10-450a-9fd8-80cb79f6101e   2Gi        RWO            standard       <unset>                 14m
+persistentvolumeclaim/data-rustfs-2   Bound    pvc-c70f10b3-c164-4b12-8b7a-8098525e7abd   2Gi        RWO            standard       <unset>                 14m
+persistentvolumeclaim/data-rustfs-3   Bound    pvc-e705aaf0-6ef6-4802-8ba8-4819e59939f6   2Gi        RWO            standard       <unset>                 14m
+
+NAME                      TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
+service/rustfs            NodePort    10.96.182.104   <none>        9000:30090/TCP   14m
+service/rustfs-headless   ClusterIP   None            <none>        9000/TCP         14m
+
+NAME                      READY   AGE
+statefulset.apps/rustfs   4/4     14m
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes get pods -n de-kubernetes -o wide -l app=rustfs
+NAME       READY   STATUS    RESTARTS   AGE   IP            NODE                          NOMINATED NODE   READINESS GATES
+rustfs-0   1/1     Running   0          14m   10.244.0.18   de-kubernetes-control-plane   <none>           <none>
+rustfs-1   1/1     Running   0          14m   10.244.0.16   de-kubernetes-control-plane   <none>           <none>
+rustfs-2   1/1     Running   0          14m   10.244.0.15   de-kubernetes-control-plane   <none>           <none>
+rustfs-3   1/1     Running   0          14m   10.244.0.17   de-kubernetes-control-plane   <none>           <none>
+результаты: results/20261118-105627-399759-status
+журнал: logs/20261118-105627-399759-status

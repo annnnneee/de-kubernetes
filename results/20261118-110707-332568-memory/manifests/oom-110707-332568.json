@@ -1,0 +1,58 @@
+{
+  "apiVersion": "batch/v1",
+  "kind": "Job",
+  "metadata": {
+    "name": "oom-110707-332568",
+    "namespace": "de-kubernetes"
+  },
+  "spec": {
+    "backoffLimit": 0,
+    "activeDeadlineSeconds": 600,
+    "template": {
+      "spec": {
+        "restartPolicy": "Never",
+        "containers": [
+          {
+            "name": "calculate",
+            "image": "de-skills:hw5",
+            "imagePullPolicy": "Never",
+            "args": [
+              "local"
+            ],
+            "resources": {
+              "requests": {
+                "cpu": "250m",
+                "memory": "32Mi"
+              },
+              "limits": {
+                "cpu": "1",
+                "memory": "64Mi"
+              }
+            },
+            "volumeMounts": [
+              {
+                "name": "input",
+                "mountPath": "/input/vacancies.csv",
+                "readOnly": true
+              }
+            ]
+          }
+        ],
+        "volumes": [
+          {
+            "name": "input",
+            "hostPath": {
+              "path": "/dataset/vacancies.csv",
+              "type": "File"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "labels": {
+          "homework": "kubernetes"
+        }
+      }
+    }
+  }
+}

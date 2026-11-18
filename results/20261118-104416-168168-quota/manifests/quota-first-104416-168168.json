@@ -1,0 +1,37 @@
+{
+  "apiVersion": "v1",
+  "kind": "Pod",
+  "metadata": {
+    "name": "quota-first-104416-168168",
+    "namespace": "de-kubernetes-quota",
+    "labels": {
+      "homework": "kubernetes"
+    }
+  },
+  "spec": {
+    "restartPolicy": "Never",
+    "terminationGracePeriodSeconds": 1,
+    "containers": [
+      {
+        "name": "hold",
+        "image": "de-skills:hw5",
+        "imagePullPolicy": "Never",
+        "args": [
+          "hold",
+          "--seconds",
+          "300"
+        ],
+        "resources": {
+          "requests": {
+            "cpu": "200m",
+            "memory": "64Mi"
+          },
+          "limits": {
+            "cpu": "200m",
+            "memory": "128Mi"
+          }
+        }
+      }
+    ]
+  }
+}

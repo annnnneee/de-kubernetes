@@ -1,0 +1,13 @@
+.venv/
+.tools/
+.idea/
+__pycache__/
+*.pyc
+.DS_Store
+.env
+data/
+report/*.aux
+report/*.log
+report/*.out
+report/*.zip
+report/tmp/

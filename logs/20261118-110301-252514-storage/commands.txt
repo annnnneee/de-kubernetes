@@ -1,0 +1,11 @@
+время: 2026-11-18T11:03:01.255238+03:00
+запуск: 20261118-110301-252514-storage
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes apply -f manifests/rustfs.yaml
+service/rustfs-headless unchanged
+service/rustfs unchanged
+statefulset.apps/rustfs configured
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes rollout status statefulset/rustfs -n de-kubernetes --timeout=300s
+partitioned roll out complete: 4 new pods have been updated...
+загрузка исходного CSV и четырёх частей в RustFS внутри Kubernetes...
+ОШИБКА: S3UploadFailedError Failed to upload /Users/annabondarenko/Downloads/it_vacancies_2024.csv to hh-lake/raw/it_vacancies_2024.csv: An error occurred (ServiceUnavailable) when calling the UploadPart operation (reached max retries: 2): The service is unavailable. Please retry.
+журнал: logs/20261118-110301-252514-storage

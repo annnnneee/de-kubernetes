@@ -1,0 +1,72 @@
+Name:             reduce-104334-248616-jn7mv
+Namespace:        de-kubernetes
+Priority:         0
+Service Account:  default
+Node:             de-kubernetes-control-plane/172.29.0.2
+Start Time:       Wed, 18 Nov 2026 10:43:59 +0300
+Labels:           batch.kubernetes.io/controller-uid=9c8566ec-c39b-47bf-85e3-9dab690e5f6c
+                  batch.kubernetes.io/job-name=reduce-104334-248616
+                  controller-uid=9c8566ec-c39b-47bf-85e3-9dab690e5f6c
+                  homework=kubernetes
+                  job-name=reduce-104334-248616
+Annotations:      <none>
+Status:           Succeeded
+IP:               10.244.0.23
+IPs:
+  IP:           10.244.0.23
+Controlled By:  Job/reduce-104334-248616
+Containers:
+  calculate:
+    Container ID:  containerd://45df925095a4061a422c4a19adb09a87852f19cfea62465042089de13b96983c
+    Image:         de-skills:hw5
+    Image ID:      sha256:334cae2bfaf416a9d670336c2a5e87f140f49f24192f46a4dc5d902d68acdb83
+    Port:          <none>
+    Host Port:     <none>
+    Args:
+      reduce
+    State:          Terminated
+      Reason:       Completed
+      Exit Code:    0
+      Started:      Wed, 18 Nov 2026 10:44:00 +0300
+      Finished:     Wed, 18 Nov 2026 10:44:02 +0300
+    Ready:          False
+    Restart Count:  0
+    Limits:
+      cpu:     1
+      memory:  1056Mi
+    Requests:
+      cpu:     250m
+      memory:  838Mi
+    Environment:
+      S3_ENDPOINT:    http://rustfs.de-kubernetes.svc.cluster.local:9000
+      S3_BUCKET:      hh-lake
+      S3_ACCESS_KEY:  <set to the key 'access-key' in secret 's3-credentials'>  Optional: false
+      S3_SECRET_KEY:  <set to the key 'secret-key' in secret 's3-credentials'>  Optional: false
+      RUN_PREFIX:     runs/20261118-104334-248616-parallel
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-z8hdh (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   False 
+  Initialized                 True 
+  Ready                       False 
+  ContainersReady             False 
+  PodScheduled                True 
+Volumes:
+  kube-api-access-z8hdh:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   Burstable
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  7s    default-scheduler  Successfully assigned de-kubernetes/reduce-104334-248616-jn7mv to de-kubernetes-control-plane
+  Normal  Pulled     6s    kubelet            Container image "de-skills:hw5" already present on machine
+  Normal  Created    6s    kubelet            Created container: calculate
+  Normal  Started    6s    kubelet            Started container calculate

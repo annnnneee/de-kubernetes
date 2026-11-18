@@ -1,0 +1,17 @@
+apiVersion: scheduling.k8s.io/v1
+kind: PriorityClass
+metadata:
+  name: de-low
+value: 100
+globalDefault: false
+preemptionPolicy: Never
+description: Низкий приоритет учебной задачи.
+---
+apiVersion: scheduling.k8s.io/v1
+kind: PriorityClass
+metadata:
+  name: de-high
+value: 10000
+globalDefault: false
+preemptionPolicy: PreemptLowerPriority
+description: Высокий приоритет с вытеснением учебной задачи.

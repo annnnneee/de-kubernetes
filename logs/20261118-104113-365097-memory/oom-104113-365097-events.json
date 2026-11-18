@@ -1,0 +1,746 @@
+{
+  "apiVersion": "v1",
+  "items": [
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-18T07:38:13Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "name": "oom-103813-339720-xmjgs",
+        "namespace": "de-kubernetes",
+        "resourceVersion": "567",
+        "uid": "f96085d1-9f82-42d2-8639-697dbc0540cc"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-18T07:38:13Z",
+      "message": "Successfully assigned de-kubernetes/oom-103813-339720-xmjgs to de-kubernetes-control-plane",
+      "metadata": {
+        "creationTimestamp": "2026-11-18T07:38:13Z",
+        "name": "oom-103813-339720-xmjgs.18e9139d83d70f95",
+        "namespace": "de-kubernetes",
+        "resourceVersion": "571",
+        "uid": "5a649646-e609-4306-847b-6a17a7d67455"
+      },
+      "reason": "Scheduled",
+      "reportingComponent": "default-scheduler",
+      "reportingInstance": "",
+      "source": {
+        "component": "default-scheduler"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-18T07:38:14Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{calculate}",
+        "kind": "Pod",
+        "name": "oom-103813-339720-xmjgs",
+        "namespace": "de-kubernetes",
+        "resourceVersion": "570",
+        "uid": "f96085d1-9f82-42d2-8639-697dbc0540cc"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-18T07:38:14Z",
+      "message": "Container image \"de-skills:hw5\" already present on machine",
+      "metadata": {
+        "creationTimestamp": "2026-11-18T07:38:14Z",
+        "name": "oom-103813-339720-xmjgs.18e9139dad18f80e",
+        "namespace": "de-kubernetes",
+        "resourceVersion": "573",
+        "uid": "5d9b017a-a33a-480b-a18b-9abe308f6e51"
+      },
+      "reason": "Pulled",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "de-kubernetes-control-plane",
+      "source": {
+        "component": "kubelet",
+        "host": "de-kubernetes-control-plane"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-18T07:38:14Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{calculate}",
+        "kind": "Pod",
+        "name": "oom-103813-339720-xmjgs",
+        "namespace": "de-kubernetes",
+        "resourceVersion": "570",
+        "uid": "f96085d1-9f82-42d2-8639-697dbc0540cc"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-18T07:38:14Z",
+      "message": "Created container: calculate",
+      "metadata": {
+        "creationTimestamp": "2026-11-18T07:38:14Z",
+        "name": "oom-103813-339720-xmjgs.18e9139daffba303",
+        "namespace": "de-kubernetes",
+        "resourceVersion": "574",
+        "uid": "f838c9b8-202e-4947-94d3-483d6c86d34f"
+      },
+      "reason": "Created",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "de-kubernetes-control-plane",
+      "source": {
+        "component": "kubelet",
+        "host": "de-kubernetes-control-plane"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-18T07:38:14Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{calculate}",
+        "kind": "Pod",
+        "name": "oom-103813-339720-xmjgs",
+        "namespace": "de-kubernetes",
+        "resourceVersion": "570",
+        "uid": "f96085d1-9f82-42d2-8639-697dbc0540cc"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-18T07:38:14Z",
+      "message": "Started container calculate",
+      "metadata": {
+        "creationTimestamp": "2026-11-18T07:38:14Z",
+        "name": "oom-103813-339720-xmjgs.18e9139dbb4d151c",
+        "namespace": "de-kubernetes",
+        "resourceVersion": "575",
+        "uid": "7c452713-ea43-4bb9-ab43-aabe8fe6abc7"
+      },
+      "reason": "Started",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "de-kubernetes-control-plane",
+      "source": {
+        "component": "kubelet",
+        "host": "de-kubernetes-control-plane"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-18T07:38:13Z",
+      "involvedObject": {
+        "apiVersion": "batch/v1",
+        "kind": "Job",
+        "name": "oom-103813-339720",
+        "namespace": "de-kubernetes",
+        "resourceVersion": "566",
+        "uid": "d36fe94e-bc0b-4fbc-b338-9a0e2f76e58c"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-18T07:38:13Z",
+      "message": "Created pod: oom-103813-339720-xmjgs",
+      "metadata": {
+        "creationTimestamp": "2026-11-18T07:38:13Z",
+        "name": "oom-103813-339720.18e9139d82dd4987",
+        "namespace": "de-kubernetes",
+        "resourceVersion": "569",
+        "uid": "577cbdec-15ce-48c4-a8aa-ea95c74d1c65"
+      },
+      "reason": "SuccessfulCreate",
+      "reportingComponent": "job-controller",
+      "reportingInstance": "",
+      "source": {
+        "component": "job-controller"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-18T07:39:09Z",
+      "involvedObject": {
+        "apiVersion": "batch/v1",
+        "kind": "Job",
+        "name": "oom-103813-339720",
+        "namespace": "de-kubernetes",
+        "resourceVersion": "658",
+        "uid": "d36fe94e-bc0b-4fbc-b338-9a0e2f76e58c"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-18T07:39:09Z",
+      "message": "Job has reached the specified backoff limit",
+      "metadata": {
+        "creationTimestamp": "2026-11-18T07:39:09Z",
+        "name": "oom-103813-339720.18e913aa92a2964a",
+        "namespace": "de-kubernetes",
+        "resourceVersion": "661",
+        "uid": "f1c7eb05-a9a0-4af0-9db2-6a34059a6b7a"
+      },
+      "reason": "BackoffLimitExceeded",
+      "reportingComponent": "job-controller",
+      "reportingInstance": "",
+      "source": {
+        "component": "job-controller"
+      },
+      "type": "Warning"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-18T07:41:13Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "name": "oom-104113-365097-2jq5f",
+        "namespace": "de-kubernetes",
+        "resourceVersion": "864",
+        "uid": "8fa084ef-1510-446b-8159-bba71df18498"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-18T07:41:13Z",
+      "message": "Successfully assigned de-kubernetes/oom-104113-365097-2jq5f to de-kubernetes-control-plane",
+      "metadata": {
+        "creationTimestamp": "2026-11-18T07:41:13Z",
+        "name": "oom-104113-365097-2jq5f.18e913c75fa76815",
+        "namespace": "de-kubernetes",
+        "resourceVersion": "868",
+        "uid": "c131cf7b-75a9-4cd5-b14e-a977bf8d1384"
+      },
+      "reason": "Scheduled",
+      "reportingComponent": "default-scheduler",
+      "reportingInstance": "",
+      "source": {
+        "component": "default-scheduler"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-18T07:41:14Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{calculate}",
+        "kind": "Pod",
+        "name": "oom-104113-365097-2jq5f",
+        "namespace": "de-kubernetes",
+        "resourceVersion": "865",
+        "uid": "8fa084ef-1510-446b-8159-bba71df18498"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-18T07:41:14Z",
+      "message": "Container image \"de-skills:hw5\" already present on machine",
+      "metadata": {
+        "creationTimestamp": "2026-11-18T07:41:14Z",
+        "name": "oom-104113-365097-2jq5f.18e913c77ffdc192",
+        "namespace": "de-kubernetes",
+        "resourceVersion": "872",
+        "uid": "ab730766-75e2-4f6e-a61e-724ede0c1a5d"
+      },
+      "reason": "Pulled",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "de-kubernetes-control-plane",
+      "source": {
+        "component": "kubelet",
+        "host": "de-kubernetes-control-plane"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-18T07:41:14Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{calculate}",
+        "kind": "Pod",
+        "name": "oom-104113-365097-2jq5f",
+        "namespace": "de-kubernetes",
+        "resourceVersion": "865",
+        "uid": "8fa084ef-1510-446b-8159-bba71df18498"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-18T07:41:14Z",
+      "message": "Created container: calculate",
+      "metadata": {
+        "creationTimestamp": "2026-11-18T07:41:14Z",
+        "name": "oom-104113-365097-2jq5f.18e913c781e2bea2",
+        "namespace": "de-kubernetes",
+        "resourceVersion": "873",
+        "uid": "71609719-f368-4d6f-904a-4450aba1d9c7"
+      },
+      "reason": "Created",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "de-kubernetes-control-plane",
+      "source": {
+        "component": "kubelet",
+        "host": "de-kubernetes-control-plane"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-18T07:41:14Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{calculate}",
+        "kind": "Pod",
+        "name": "oom-104113-365097-2jq5f",
+        "namespace": "de-kubernetes",
+        "resourceVersion": "865",
+        "uid": "8fa084ef-1510-446b-8159-bba71df18498"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-18T07:41:14Z",
+      "message": "Started container calculate",
+      "metadata": {
+        "creationTimestamp": "2026-11-18T07:41:14Z",
+        "name": "oom-104113-365097-2jq5f.18e913c78a3f7806",
+        "namespace": "de-kubernetes",
+        "resourceVersion": "874",
+        "uid": "1356db20-a424-44cd-912a-3d2ab9a26cd4"
+      },
+      "reason": "Started",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "de-kubernetes-control-plane",
+      "source": {
+        "component": "kubelet",
+        "host": "de-kubernetes-control-plane"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-18T07:41:13Z",
+      "involvedObject": {
+        "apiVersion": "batch/v1",
+        "kind": "Job",
+        "name": "oom-104113-365097",
+        "namespace": "de-kubernetes",
+        "resourceVersion": "863",
+        "uid": "8734c967-7e44-4acc-a815-4f48874aead4"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-18T07:41:13Z",
+      "message": "Created pod: oom-104113-365097-2jq5f",
+      "metadata": {
+        "creationTimestamp": "2026-11-18T07:41:13Z",
+        "name": "oom-104113-365097.18e913c75f21717c",
+        "namespace": "de-kubernetes",
+        "resourceVersion": "866",
+        "uid": "ebe2a458-d50c-4aaa-a623-62b72c427366"
+      },
+      "reason": "SuccessfulCreate",
+      "reportingComponent": "job-controller",
+      "reportingInstance": "",
+      "source": {
+        "component": "job-controller"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-18T07:39:10Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "name": "profile-103813-339720-h85v7",
+        "namespace": "de-kubernetes",
+        "resourceVersion": "663",
+        "uid": "87275f24-6909-4584-9a11-4b2c002d70bf"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-18T07:39:10Z",
+      "message": "Successfully assigned de-kubernetes/profile-103813-339720-h85v7 to de-kubernetes-control-plane",
+      "metadata": {
+        "creationTimestamp": "2026-11-18T07:39:10Z",
+        "name": "profile-103813-339720-h85v7.18e913aac2143e8a",
+        "namespace": "de-kubernetes",
+        "resourceVersion": "667",
+        "uid": "103feeb7-cf54-44b3-901a-7bf955a967ef"
+      },
+      "reason": "Scheduled",
+      "reportingComponent": "default-scheduler",
+      "reportingInstance": "",
+      "source": {
+        "component": "default-scheduler"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-18T07:39:11Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{calculate}",
+        "kind": "Pod",
+        "name": "profile-103813-339720-h85v7",
+        "namespace": "de-kubernetes",
+        "resourceVersion": "665",
+        "uid": "87275f24-6909-4584-9a11-4b2c002d70bf"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-18T07:39:11Z",
+      "message": "Container image \"de-skills:hw5\" already present on machine",
+      "metadata": {
+        "creationTimestamp": "2026-11-18T07:39:11Z",
+        "name": "profile-103813-339720-h85v7.18e913aae1b55c5c",
+        "namespace": "de-kubernetes",
+        "resourceVersion": "669",
+        "uid": "d502cda4-cf52-450b-a928-105e4d1d074c"
+      },
+      "reason": "Pulled",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "de-kubernetes-control-plane",
+      "source": {
+        "component": "kubelet",
+        "host": "de-kubernetes-control-plane"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-18T07:39:11Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{calculate}",
+        "kind": "Pod",
+        "name": "profile-103813-339720-h85v7",
+        "namespace": "de-kubernetes",
+        "resourceVersion": "665",
+        "uid": "87275f24-6909-4584-9a11-4b2c002d70bf"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-18T07:39:11Z",
+      "message": "Created container: calculate",
+      "metadata": {
+        "creationTimestamp": "2026-11-18T07:39:11Z",
+        "name": "profile-103813-339720-h85v7.18e913aae316a353",
+        "namespace": "de-kubernetes",
+        "resourceVersion": "670",
+        "uid": "b9cd79a1-a033-4abd-85a8-e5799bc0b6f4"
+      },
+      "reason": "Created",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "de-kubernetes-control-plane",
+      "source": {
+        "component": "kubelet",
+        "host": "de-kubernetes-control-plane"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-18T07:39:11Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{calculate}",
+        "kind": "Pod",
+        "name": "profile-103813-339720-h85v7",
+        "namespace": "de-kubernetes",
+        "resourceVersion": "665",
+        "uid": "87275f24-6909-4584-9a11-4b2c002d70bf"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-18T07:39:11Z",
+      "message": "Started container calculate",
+      "metadata": {
+        "creationTimestamp": "2026-11-18T07:39:11Z",
+        "name": "profile-103813-339720-h85v7.18e913aaeb4c1272",
+        "namespace": "de-kubernetes",
+        "resourceVersion": "673",
+        "uid": "26fee8b7-5357-4019-b953-99029c9cf38e"
+      },
+      "reason": "Started",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "de-kubernetes-control-plane",
+      "source": {
+        "component": "kubelet",
+        "host": "de-kubernetes-control-plane"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-18T07:39:10Z",
+      "involvedObject": {
+        "apiVersion": "batch/v1",
+        "kind": "Job",
+        "name": "profile-103813-339720",
+        "namespace": "de-kubernetes",
+        "resourceVersion": "662",
+        "uid": "f7a5cc7d-94de-455f-8092-37461f78287a"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-18T07:39:10Z",
+      "message": "Created pod: profile-103813-339720-h85v7",
+      "metadata": {
+        "creationTimestamp": "2026-11-18T07:39:10Z",
+        "name": "profile-103813-339720.18e913aac17b34f8",
+        "namespace": "de-kubernetes",
+        "resourceVersion": "664",
+        "uid": "5bc46fc9-b87c-4d5d-ba9b-2a65038ed4c4"
+      },
+      "reason": "SuccessfulCreate",
+      "reportingComponent": "job-controller",
+      "reportingInstance": "",
+      "source": {
+        "component": "job-controller"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-18T07:39:27Z",
+      "involvedObject": {
+        "apiVersion": "batch/v1",
+        "kind": "Job",
+        "name": "profile-103813-339720",
+        "namespace": "de-kubernetes",
+        "resourceVersion": "697",
+        "uid": "f7a5cc7d-94de-455f-8092-37461f78287a"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-18T07:39:27Z",
+      "message": "Job completed",
+      "metadata": {
+        "creationTimestamp": "2026-11-18T07:39:27Z",
+        "name": "profile-103813-339720.18e913ae94033367",
+        "namespace": "de-kubernetes",
+        "resourceVersion": "700",
+        "uid": "862dc79f-1d38-4e75-ad32-7f76e59d3813"
+      },
+      "reason": "Completed",
+      "reportingComponent": "job-controller",
+      "reportingInstance": "",
+      "source": {
+        "component": "job-controller"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-18T07:39:28Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "name": "tuned-103813-339720-w2cwj",
+        "namespace": "de-kubernetes",
+        "resourceVersion": "705",
+        "uid": "dff049f2-ad33-4d02-a68a-5bf52fc16afe"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-18T07:39:28Z",
+      "message": "Successfully assigned de-kubernetes/tuned-103813-339720-w2cwj to de-kubernetes-control-plane",
+      "metadata": {
+        "creationTimestamp": "2026-11-18T07:39:28Z",
+        "name": "tuned-103813-339720-w2cwj.18e913aed40f1b9f",
+        "namespace": "de-kubernetes",
+        "resourceVersion": "709",
+        "uid": "cf7bb57a-bad8-48ca-b8d7-ceda048b4ac5"
+      },
+      "reason": "Scheduled",
+      "reportingComponent": "default-scheduler",
+      "reportingInstance": "",
+      "source": {
+        "component": "default-scheduler"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-18T07:39:28Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{calculate}",
+        "kind": "Pod",
+        "name": "tuned-103813-339720-w2cwj",
+        "namespace": "de-kubernetes",
+        "resourceVersion": "707",
+        "uid": "dff049f2-ad33-4d02-a68a-5bf52fc16afe"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-18T07:39:28Z",
+      "message": "Container image \"de-skills:hw5\" already present on machine",
+      "metadata": {
+        "creationTimestamp": "2026-11-18T07:39:28Z",
+        "name": "tuned-103813-339720-w2cwj.18e913aef0f1ecdd",
+        "namespace": "de-kubernetes",
+        "resourceVersion": "711",
+        "uid": "efc68b69-3c92-4042-aa45-a0d653fc1092"
+      },
+      "reason": "Pulled",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "de-kubernetes-control-plane",
+      "source": {
+        "component": "kubelet",
+        "host": "de-kubernetes-control-plane"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-18T07:39:28Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{calculate}",
+        "kind": "Pod",
+        "name": "tuned-103813-339720-w2cwj",
+        "namespace": "de-kubernetes",
+        "resourceVersion": "707",
+        "uid": "dff049f2-ad33-4d02-a68a-5bf52fc16afe"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-18T07:39:28Z",
+      "message": "Created container: calculate",
+      "metadata": {
+        "creationTimestamp": "2026-11-18T07:39:28Z",
+        "name": "tuned-103813-339720-w2cwj.18e913aef2353f35",
+        "namespace": "de-kubernetes",
+        "resourceVersion": "712",
+        "uid": "57bb6fd6-0685-461f-9e5f-07bbbd3fa543"
+      },
+      "reason": "Created",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "de-kubernetes-control-plane",
+      "source": {
+        "component": "kubelet",
+        "host": "de-kubernetes-control-plane"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-18T07:39:28Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{calculate}",
+        "kind": "Pod",
+        "name": "tuned-103813-339720-w2cwj",
+        "namespace": "de-kubernetes",
+        "resourceVersion": "707",
+        "uid": "dff049f2-ad33-4d02-a68a-5bf52fc16afe"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-18T07:39:28Z",
+      "message": "Started container calculate",
+      "metadata": {
+        "creationTimestamp": "2026-11-18T07:39:28Z",
+        "name": "tuned-103813-339720-w2cwj.18e913aefa7885a0",
+        "namespace": "de-kubernetes",
+        "resourceVersion": "713",
+        "uid": "ae2acf38-a763-446b-b699-0d32f510a0d7"
+      },
+      "reason": "Started",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "de-kubernetes-control-plane",
+      "source": {
+        "component": "kubelet",
+        "host": "de-kubernetes-control-plane"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-18T07:39:28Z",
+      "involvedObject": {
+        "apiVersion": "batch/v1",
+        "kind": "Job",
+        "name": "tuned-103813-339720",
+        "namespace": "de-kubernetes",
+        "resourceVersion": "704",
+        "uid": "e638f26d-9ae6-490d-be36-822b1a8533b9"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-18T07:39:28Z",
+      "message": "Created pod: tuned-103813-339720-w2cwj",
+      "metadata": {
+        "creationTimestamp": "2026-11-18T07:39:28Z",
+        "name": "tuned-103813-339720.18e913aed384ce82",
+        "namespace": "de-kubernetes",
+        "resourceVersion": "706",
+        "uid": "3c8a483f-863b-4250-bf7e-0f5a653911fb"
+      },
+      "reason": "SuccessfulCreate",
+      "reportingComponent": "job-controller",
+      "reportingInstance": "",
+      "source": {
+        "component": "job-controller"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-18T07:39:43Z",
+      "involvedObject": {
+        "apiVersion": "batch/v1",
+        "kind": "Job",
+        "name": "tuned-103813-339720",
+        "namespace": "de-kubernetes",
+        "resourceVersion": "737",
+        "uid": "e638f26d-9ae6-490d-be36-822b1a8533b9"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-18T07:39:43Z",
+      "message": "Job completed",
+      "metadata": {
+        "creationTimestamp": "2026-11-18T07:39:43Z",
+        "name": "tuned-103813-339720.18e913b24f2a5efc",
+        "namespace": "de-kubernetes",
+        "resourceVersion": "740",
+        "uid": "3781ff94-6fa3-4905-9b3e-74cf1a2bb51c"
+      },
+      "reason": "Completed",
+      "reportingComponent": "job-controller",
+      "reportingInstance": "",
+      "source": {
+        "component": "job-controller"
+      },
+      "type": "Normal"
+    }
+  ],
+  "kind": "List",
+  "metadata": {
+    "resourceVersion": ""
+  }
+}

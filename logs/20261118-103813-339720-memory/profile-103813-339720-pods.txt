@@ -1,0 +1,3 @@
+NAME                          READY   STATUS      RESTARTS   AGE   IP           NODE                          NOMINATED NODE   READINESS GATES
+oom-103813-339720-xmjgs       0/1     OOMKilled   0          74s   10.244.0.5   de-kubernetes-control-plane   <none>           <none>
+profile-103813-339720-h85v7   0/1     Completed   0          17s   10.244.0.6   de-kubernetes-control-plane   <none>           <none>

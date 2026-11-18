@@ -1,0 +1,181 @@
+{
+  "oom": {
+    "containerID": "containerd://24423454af5fb6b3e1763a866dc2cab9c9ea23e1dab79516b5df34782aed9ea4",
+    "exitCode": 137,
+    "finishedAt": "2026-11-18T08:07:12Z",
+    "reason": "OOMKilled",
+    "startedAt": "2026-11-18T08:07:09Z"
+  },
+  "profile": {
+    "variant": 2,
+    "source_rows": 229388,
+    "selected_rows": 3892,
+    "unique_pairs": 17798,
+    "pair_occurrences": 81302,
+    "sha256": "ce28b86e29016c585577f5a3d529c720c87e84213e18ff1a43bf69e4676b81b5",
+    "top10": [
+      {
+        "skills": [
+          "postgresql",
+          "python"
+        ],
+        "frequency": 1304
+      },
+      {
+        "skills": [
+          "git",
+          "python"
+        ],
+        "frequency": 905
+      },
+      {
+        "skills": [
+          "docker",
+          "python"
+        ],
+        "frequency": 792
+      },
+      {
+        "skills": [
+          "python",
+          "sql"
+        ],
+        "frequency": 773
+      },
+      {
+        "skills": [
+          "django framework",
+          "python"
+        ],
+        "frequency": 722
+      },
+      {
+        "skills": [
+          "linux",
+          "python"
+        ],
+        "frequency": 660
+      },
+      {
+        "skills": [
+          "fastapi",
+          "python"
+        ],
+        "frequency": 508
+      },
+      {
+        "skills": [
+          "git",
+          "postgresql"
+        ],
+        "frequency": 494
+      },
+      {
+        "skills": [
+          "docker",
+          "postgresql"
+        ],
+        "frequency": 484
+      },
+      {
+        "skills": [
+          "python",
+          "redis"
+        ],
+        "frequency": 457
+      }
+    ],
+    "elapsed_seconds": 23.763,
+    "rss_peak_bytes": 103030784,
+    "cgroup_peak_bytes": 899510272,
+    "matches_hw3": true,
+    "source_sha256": "303db922b541e4440906f5a7e8be32fb55e8808f950ffddb8c272f1548212a65"
+  },
+  "limit_mib": 1088,
+  "formula": "ceil(cgroup_peak_bytes * 1.25 / (16 * 1024**2)) * 16 MiB",
+  "tuned": {
+    "variant": 2,
+    "source_rows": 229388,
+    "selected_rows": 3892,
+    "unique_pairs": 17798,
+    "pair_occurrences": 81302,
+    "sha256": "ce28b86e29016c585577f5a3d529c720c87e84213e18ff1a43bf69e4676b81b5",
+    "top10": [
+      {
+        "skills": [
+          "postgresql",
+          "python"
+        ],
+        "frequency": 1304
+      },
+      {
+        "skills": [
+          "git",
+          "python"
+        ],
+        "frequency": 905
+      },
+      {
+        "skills": [
+          "docker",
+          "python"
+        ],
+        "frequency": 792
+      },
+      {
+        "skills": [
+          "python",
+          "sql"
+        ],
+        "frequency": 773
+      },
+      {
+        "skills": [
+          "django framework",
+          "python"
+        ],
+        "frequency": 722
+      },
+      {
+        "skills": [
+          "linux",
+          "python"
+        ],
+        "frequency": 660
+      },
+      {
+        "skills": [
+          "fastapi",
+          "python"
+        ],
+        "frequency": 508
+      },
+      {
+        "skills": [
+          "git",
+          "postgresql"
+        ],
+        "frequency": 494
+      },
+      {
+        "skills": [
+          "docker",
+          "postgresql"
+        ],
+        "frequency": 484
+      },
+      {
+        "skills": [
+          "python",
+          "redis"
+        ],
+        "frequency": 457
+      }
+    ],
+    "elapsed_seconds": 25.541,
+    "rss_peak_bytes": 101646336,
+    "cgroup_peak_bytes": 929423360,
+    "matches_hw3": true,
+    "source_sha256": "303db922b541e4440906f5a7e8be32fb55e8808f950ffddb8c272f1548212a65"
+  }
+}

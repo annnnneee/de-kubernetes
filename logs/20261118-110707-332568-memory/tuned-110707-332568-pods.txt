@@ -1,0 +1,2 @@
+NAME                        READY   STATUS      RESTARTS   AGE   IP            NODE                          NOMINATED NODE   READINESS GATES
+tuned-110707-332568-mbtdz   0/1     Completed   0          33s   10.244.0.34   de-kubernetes-control-plane   <none>           <none>

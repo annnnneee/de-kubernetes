@@ -1,0 +1,17 @@
+NAME                          READY   STATUS      RESTARTS   AGE     IP            NODE                          NOMINATED NODE   READINESS GATES
+map-104334-248616-0-z9pgv     0/1     Completed   0          88s     10.244.0.20   de-kubernetes-control-plane   <none>           <none>
+map-104334-248616-1-8g85g     0/1     Completed   0          88s     10.244.0.19   de-kubernetes-control-plane   <none>           <none>
+map-104334-248616-2-rqg2d     0/1     Completed   0          76s     10.244.0.21   de-kubernetes-control-plane   <none>           <none>
+map-104334-248616-3-fbsld     0/1     Completed   0          76s     10.244.0.22   de-kubernetes-control-plane   <none>           <none>
+oom-103813-339720-xmjgs       0/1     OOMKilled   0          6m49s   10.244.0.5    de-kubernetes-control-plane   <none>           <none>
+oom-104113-365097-2jq5f       0/1     OOMKilled   0          3m49s   10.244.0.8    de-kubernetes-control-plane   <none>           <none>
+profile-103813-339720-h85v7   0/1     Completed   0          5m52s   10.244.0.6    de-kubernetes-control-plane   <none>           <none>
+profile-104113-365097-lkqds   0/1     Completed   0          3m44s   10.244.0.9    de-kubernetes-control-plane   <none>           <none>
+reduce-104334-248616-jn7mv    0/1     Completed   0          63s     10.244.0.23   de-kubernetes-control-plane   <none>           <none>
+rustfs-0                      1/1     Running     0          2m49s   10.244.0.18   de-kubernetes-control-plane   <none>           <none>
+rustfs-1                      1/1     Running     0          2m49s   10.244.0.16   de-kubernetes-control-plane   <none>           <none>
+rustfs-2                      1/1     Running     0          2m49s   10.244.0.15   de-kubernetes-control-plane   <none>           <none>
+rustfs-3                      1/1     Running     0          2m49s   10.244.0.17   de-kubernetes-control-plane   <none>           <none>
+tuned-103813-339720-w2cwj     0/1     Completed   0          5m34s   10.244.0.7    de-kubernetes-control-plane   <none>           <none>
+tuned-104113-365097-xhvqs     0/1     Completed   0          3m29s   10.244.0.10   de-kubernetes-control-plane   <none>           <none>
+waiting-104454-434916-5hr57   1/1     Running     0          5s      10.244.0.26   de-kubernetes-control-plane   <none>           <none>

@@ -1,0 +1,98 @@
+{
+  "runs": {
+    "setup": "results/20261118-104051-422427-setup",
+    "memory": "results/20261118-110707-332568-memory",
+    "storage": "results/20261118-110843-182065-storage",
+    "parallel": "results/20261118-111300-660670-parallel",
+    "scheduling": "results/20261118-111539-237155-scheduling",
+    "quota": "results/20261118-111903-718174-quota"
+  },
+  "checks": {
+    "oom_killed_137": true,
+    "limit_above_measured_peak": true,
+    "tuned_job_matches_hw3": true,
+    "s3_objects_verified": true,
+    "four_parts": true,
+    "parallel_execution": true,
+    "full_pairs_match_hw3": true,
+    "top10_match_hw3": true,
+    "insufficient_cpu": true,
+    "started_after_cpu_release": true,
+    "preemption": true,
+    "quota_rejects_creation": true,
+    "logs_present": true
+  },
+  "pairs_sha256": "ce28b86e29016c585577f5a3d529c720c87e84213e18ff1a43bf69e4676b81b5",
+  "top10": [
+    {
+      "skills": [
+        "postgresql",
+        "python"
+      ],
+      "frequency": 1304
+    },
+    {
+      "skills": [
+        "git",
+        "python"
+      ],
+      "frequency": 905
+    },
+    {
+      "skills": [
+        "docker",
+        "python"
+      ],
+      "frequency": 792
+    },
+    {
+      "skills": [
+        "python",
+        "sql"
+      ],
+      "frequency": 773
+    },
+    {
+      "skills": [
+        "django framework",
+        "python"
+      ],
+      "frequency": 722
+    },
+    {
+      "skills": [
+        "linux",
+        "python"
+      ],
+      "frequency": 660
+    },
+    {
+      "skills": [
+        "fastapi",
+        "python"
+      ],
+      "frequency": 508
+    },
+    {
+      "skills": [
+        "git",
+        "postgresql"
+      ],
+      "frequency": 494
+    },
+    {
+      "skills": [
+        "docker",
+        "postgresql"
+      ],
+      "frequency": 484
+    },
+    {
+      "skills": [
+        "python",
+        "redis"
+      ],
+      "frequency": 457
+    }
+  ]
+}

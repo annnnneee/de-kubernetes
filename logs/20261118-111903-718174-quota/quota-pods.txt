@@ -1,0 +1,2 @@
+NAME                        READY   STATUS              RESTARTS   AGE   IP       NODE                          NOMINATED NODE   READINESS GATES
+quota-first-111903-718174   0/1     ContainerCreating   0          2s    <none>   de-kubernetes-control-plane   <none>           <none>

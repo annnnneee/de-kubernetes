@@ -1,0 +1,25 @@
+начало расчёта, строк в порции: 10000
+обработано строк: 10000
+обработано строк: 20000
+обработано строк: 30000
+обработано строк: 40000
+обработано строк: 50000
+обработано строк: 60000
+обработано строк: 70000
+обработано строк: 80000
+обработано строк: 90000
+обработано строк: 100000
+обработано строк: 110000
+обработано строк: 120000
+обработано строк: 130000
+обработано строк: 140000
+обработано строк: 150000
+обработано строк: 160000
+обработано строк: 170000
+обработано строк: 180000
+обработано строк: 190000
+обработано строк: 200000
+обработано строк: 210000
+обработано строк: 220000
+обработано строк: 229388
+RESULT_JSON={"variant": 2, "source_rows": 229388, "selected_rows": 3892, "unique_pairs": 17798, "pair_occurrences": 81302, "sha256": "ce28b86e29016c585577f5a3d529c720c87e84213e18ff1a43bf69e4676b81b5", "top10": [{"skills": ["postgresql", "python"], "frequency": 1304}, {"skills": ["git", "python"], "frequency": 905}, {"skills": ["docker", "python"], "frequency": 792}, {"skills": ["python", "sql"], "frequency": 773}, {"skills": ["django framework", "python"], "frequency": 722}, {"skills": ["linux", "python"], "frequency": 660}, {"skills": ["fastapi", "python"], "frequency": 508}, {"skills": ["git", "postgresql"], "frequency": 494}, {"skills": ["docker", "postgresql"], "frequency": 484}, {"skills": ["python", "redis"], "frequency": 457}], "elapsed_seconds": 43.65, "rss_peak_bytes": 102961152, "cgroup_peak_bytes": 943185920, "matches_hw3": true, "source_sha256": "303db922b541e4440906f5a7e8be32fb55e8808f950ffddb8c272f1548212a65"}

@@ -1,0 +1,2 @@
+NAME                          READY   STATUS      RESTARTS   AGE   IP            NODE                          NOMINATED NODE   READINESS GATES
+profile-110707-332568-ztgq7   0/1     Completed   0          30s   10.244.0.33   de-kubernetes-control-plane   <none>           <none>

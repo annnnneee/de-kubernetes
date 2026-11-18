@@ -1,0 +1,34 @@
+время: 2026-11-18T11:13:00.662960+03:00
+запуск: 20261118-111300-660670-parallel
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes apply -f -
+job.batch/map-111300-660670 created
+map-111300-660670 Succeeded [('Completed', 0)]
+map-111300-660670 Succeeded [('Completed', 0)]
+map-111300-660670 Succeeded [('Completed', 0)]
+map-111300-660670 Succeeded [('Completed', 0)]
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes get pods -n de-kubernetes -o wide -l job-name=map-111300-660670
+NAME                        READY   STATUS      RESTARTS   AGE   IP            NODE                          NOMINATED NODE   READINESS GATES
+map-111300-660670-0-5fbq8   0/1     Completed   0          48s   10.244.0.35   de-kubernetes-control-plane   <none>           <none>
+map-111300-660670-1-wchj7   0/1     Completed   0          48s   10.244.0.36   de-kubernetes-control-plane   <none>           <none>
+map-111300-660670-2-bmptp   0/1     Completed   0          22s   10.244.0.38   de-kubernetes-control-plane   <none>           <none>
+map-111300-660670-3-q2xv2   0/1     Completed   0          22s   10.244.0.37   de-kubernetes-control-plane   <none>           <none>
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes apply -f -
+job.batch/reduce-111300-660670 created
+reduce-111300-660670 Succeeded [('Completed', 0)]
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes get pods -n de-kubernetes -o wide -l job-name=reduce-111300-660670
+NAME                         READY   STATUS      RESTARTS   AGE   IP            NODE                          NOMINATED NODE   READINESS GATES
+reduce-111300-660670-rbh7w   0/1     Completed   0          10s   10.244.0.39   de-kubernetes-control-plane   <none>           <none>
+четыре части, parallelism=2, перекрытие времени мапперов: True
+1 postgresql + python 1304
+2 git + python 905
+3 docker + python 792
+4 python + sql 773
+5 django framework + python 722
+6 linux + python 660
+7 fastapi + python 508
+8 git + postgresql 494
+9 docker + postgresql 484
+10 python + redis 457
+топ-10 и полный файл частот совпадают с ДЗ № 3: True
+результаты: results/20261118-111300-660670-parallel
+журнал: logs/20261118-111300-660670-parallel

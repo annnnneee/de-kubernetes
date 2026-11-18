@@ -1,0 +1,8 @@
+начало расчёта, строк в порции: 10000
+обработано строк: 10000
+обработано строк: 20000
+обработано строк: 30000
+обработано строк: 40000
+обработано строк: 50000
+обработано строк: 57347
+RESULT_JSON={"variant": 2, "source_rows": 57347, "selected_rows": 971, "unique_pairs": 7394, "pair_occurrences": 20314, "sha256": "57df5e10fc314442c45684fd672c92d0c26c15af5dc1a6fdb3aec7d3c0137027", "top10": [{"skills": ["postgresql", "python"], "frequency": 342}, {"skills": ["git", "python"], "frequency": 238}, {"skills": ["docker", "python"], "frequency": 209}, {"skills": ["python", "sql"], "frequency": 190}, {"skills": ["linux", "python"], "frequency": 186}, {"skills": ["django framework", "python"], "frequency": 182}, {"skills": ["fastapi", "python"], "frequency": 135}, {"skills": ["python", "redis"], "frequency": 133}, {"skills": ["docker", "postgresql"], "frequency": 126}, {"skills": ["git", "postgresql"], "frequency": 124}], "elapsed_seconds": 7.242, "rss_peak_bytes": 110469120, "cgroup_peak_bytes": 103727104, "index": 2, "input_key": "input/part-2.csv", "input_sha256": "bda50dc954e73dd8c62d526096d2ea72ce42f3ddfe4531f5b8ee430b402fc3b0"}

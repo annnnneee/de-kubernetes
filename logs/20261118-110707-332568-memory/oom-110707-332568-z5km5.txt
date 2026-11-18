@@ -1,0 +1,72 @@
+Name:             oom-110707-332568-z5km5
+Namespace:        de-kubernetes
+Priority:         0
+Service Account:  default
+Node:             de-kubernetes-control-plane/172.29.0.2
+Start Time:       Wed, 18 Nov 2026 11:07:07 +0300
+Labels:           batch.kubernetes.io/controller-uid=f1c9d464-b39b-4779-af66-9a8b333d4bf8
+                  batch.kubernetes.io/job-name=oom-110707-332568
+                  controller-uid=f1c9d464-b39b-4779-af66-9a8b333d4bf8
+                  homework=kubernetes
+                  job-name=oom-110707-332568
+Annotations:      <none>
+Status:           Failed
+IP:               10.244.0.32
+IPs:
+  IP:           10.244.0.32
+Controlled By:  Job/oom-110707-332568
+Containers:
+  calculate:
+    Container ID:  containerd://24423454af5fb6b3e1763a866dc2cab9c9ea23e1dab79516b5df34782aed9ea4
+    Image:         de-skills:hw5
+    Image ID:      sha256:334cae2bfaf416a9d670336c2a5e87f140f49f24192f46a4dc5d902d68acdb83
+    Port:          <none>
+    Host Port:     <none>
+    Args:
+      local
+    State:          Terminated
+      Reason:       OOMKilled
+      Exit Code:    137
+      Started:      Wed, 18 Nov 2026 11:07:09 +0300
+      Finished:     Wed, 18 Nov 2026 11:07:12 +0300
+    Ready:          False
+    Restart Count:  0
+    Limits:
+      cpu:     1
+      memory:  64Mi
+    Requests:
+      cpu:        250m
+      memory:     32Mi
+    Environment:  <none>
+    Mounts:
+      /input/vacancies.csv from input (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-fccpw (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   False 
+  Initialized                 True 
+  Ready                       False 
+  ContainersReady             False 
+  PodScheduled                True 
+Volumes:
+  input:
+    Type:          HostPath (bare host directory volume)
+    Path:          /dataset/vacancies.csv
+    HostPathType:  File
+  kube-api-access-fccpw:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   Burstable
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  7s    default-scheduler  Successfully assigned de-kubernetes/oom-110707-332568-z5km5 to de-kubernetes-control-plane
+  Normal  Pulled     7s    kubelet            Container image "de-skills:hw5" already present on machine
+  Normal  Created    7s    kubelet            Created container: calculate
+  Normal  Started    6s    kubelet            Started container calculate

@@ -1,0 +1,11 @@
+NAME                          READY   STATUS      RESTARTS   AGE     IP            NODE                          NOMINATED NODE   READINESS GATES
+oom-103813-339720-xmjgs       0/1     OOMKilled   0          5m20s   10.244.0.5    de-kubernetes-control-plane   <none>           <none>
+oom-104113-365097-2jq5f       0/1     OOMKilled   0          2m20s   10.244.0.8    de-kubernetes-control-plane   <none>           <none>
+profile-103813-339720-h85v7   0/1     Completed   0          4m23s   10.244.0.6    de-kubernetes-control-plane   <none>           <none>
+profile-104113-365097-lkqds   0/1     Completed   0          2m15s   10.244.0.9    de-kubernetes-control-plane   <none>           <none>
+rustfs-0                      1/1     Running     0          80s     10.244.0.18   de-kubernetes-control-plane   <none>           <none>
+rustfs-1                      1/1     Running     0          80s     10.244.0.16   de-kubernetes-control-plane   <none>           <none>
+rustfs-2                      1/1     Running     0          80s     10.244.0.15   de-kubernetes-control-plane   <none>           <none>
+rustfs-3                      1/1     Running     0          80s     10.244.0.17   de-kubernetes-control-plane   <none>           <none>
+tuned-103813-339720-w2cwj     0/1     Completed   0          4m5s    10.244.0.7    de-kubernetes-control-plane   <none>           <none>
+tuned-104113-365097-xhvqs     0/1     Completed   0          2m      10.244.0.10   de-kubernetes-control-plane   <none>           <none>

@@ -1,0 +1,91 @@
+время: 2026-11-18T10:40:51.423406+03:00
+запуск: 20261118-104051-422427-setup
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes get nodes -o wide
+NAME                          STATUS   ROLES           AGE     VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE                         KERNEL-VERSION     CONTAINER-RUNTIME
+de-kubernetes-control-plane   Ready    control-plane   4m18s   v1.34.0   172.29.0.2    <none>        Debian GNU/Linux 12 (bookworm)   6.12.76-linuxkit   containerd://2.1.3
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes apply -f manifests/namespace.yaml
+namespace/de-kubernetes unchanged
+namespace/de-kubernetes-quota unchanged
+$ docker build -t de-skills:hw5 .
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 299B 0.0s done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.12-slim-bookworm
+#2 DONE 0.9s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 127B done
+#3 DONE 0.0s
+
+#4 [internal] load build context
+#4 transferring context: 7.63kB 0.0s done
+#4 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/python:3.12-slim-bookworm@sha256:935c3c5b12357a7e10caa9c1e6ca5692344d97cf229832ef584be2cec9fc03df
+#5 resolve docker.io/library/python:3.12-slim-bookworm@sha256:935c3c5b12357a7e10caa9c1e6ca5692344d97cf229832ef584be2cec9fc03df 0.0s done
+#5 DONE 0.0s
+
+#6 [2/7] WORKDIR /app
+#6 CACHED
+
+#7 [3/7] COPY requirements.txt .
+#7 CACHED
+
+#8 [4/7] RUN pip install --no-cache-dir -r requirements.txt
+#8 CACHED
+
+#9 [5/7] COPY app/ ./
+#9 DONE 0.0s
+
+#10 [6/7] COPY config.json .
+#10 DONE 0.0s
+
+#11 [7/7] COPY baseline/ ./baseline/
+#11 DONE 0.0s
+
+#12 exporting to image
+#12 exporting layers 0.1s done
+#12 exporting manifest sha256:639408a6f1bfd99724ed64839db70b475444f2f4887d54b34657cac517cc172a done
+#12 exporting config sha256:334cae2bfaf416a9d670336c2a5e87f140f49f24192f46a4dc5d902d68acdb83 done
+#12 exporting attestation manifest sha256:92c72cbaff78bf01ba7745b0c2406e9f7de0819fbb2199ffe4389ebeeb36b4d5 0.0s done
+#12 exporting manifest list sha256:80eeff99be34cc47f74778d7a1e5b5262d61d9adaccbcef055373dcb321e53c4 done
+#12 naming to docker.io/library/de-skills:hw5 done
+#12 unpacking to docker.io/library/de-skills:hw5 0.0s done
+#12 DONE 0.2s
+$ '/Users/annabondarenko/Documents/ChatGPT/инжД 2/kubernetes/.tools/kind' load docker-image de-skills:hw5 --name de-kubernetes
+Image: "de-skills:hw5" with ID "sha256:80eeff99be34cc47f74778d7a1e5b5262d61d9adaccbcef055373dcb321e53c4" not yet present on node "de-kubernetes-control-plane", loading...
+$ docker tag rustfs/rustfs@sha256:8cc9801755448b71a786705ce76692c77e14936cccd87cf2fc31842e58f4d1ff de-rustfs:hw5
+$ '/Users/annabondarenko/Documents/ChatGPT/инжД 2/kubernetes/.tools/kind' load docker-image de-rustfs:hw5 --name de-kubernetes
+Image: "de-rustfs:hw5" with ID "sha256:8cc9801755448b71a786705ce76692c77e14936cccd87cf2fc31842e58f4d1ff" not yet present on node "de-kubernetes-control-plane", loading...
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes version -o yaml
+clientVersion:
+  buildDate: "2025-09-09T19:44:50Z"
+  compiler: gc
+  gitCommit: 93248f9ae092f571eb870b7664c534bfc7d00f03
+  gitTreeState: clean
+  gitVersion: v1.34.1
+  goVersion: go1.24.6
+  major: "1"
+  minor: "34"
+  platform: darwin/arm64
+kustomizeVersion: v5.7.1
+serverVersion:
+  buildDate: "2025-08-27T10:09:04Z"
+  compiler: gc
+  emulationMajor: "1"
+  emulationMinor: "34"
+  gitCommit: f28b4c9efbca5c5c0af716d9f2d5702667ee8a45
+  gitTreeState: clean
+  gitVersion: v1.34.0
+  goVersion: go1.24.6
+  major: "1"
+  minCompatibilityMajor: "1"
+  minCompatibilityMinor: "33"
+  minor: "34"
+  platform: linux/arm64
+
+результаты: results/20261118-104051-422427-setup
+журнал: logs/20261118-104051-422427-setup

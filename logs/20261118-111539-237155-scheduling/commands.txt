@@ -1,0 +1,42 @@
+время: 2026-11-18T11:15:39.238486+03:00
+запуск: 20261118-111539-237155-scheduling
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes apply -f manifests/priorities.yaml
+priorityclass.scheduling.k8s.io/de-low configured
+priorityclass.scheduling.k8s.io/de-high configured
+CPU узла: 8000m, занято заявками: 1350m; свободно: 6650m, каждая задача: 4000m
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes apply -f -
+job.batch/occupy-111539-237155 created
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes apply -f -
+job.batch/waiting-111539-237155 created
+ожидание: 0/1 nodes are available: 1 Insufficient cpu. no new claims to deallocate, preemption: 0/1 nodes are available: 1 No preemption victims found for incoming pod.
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes get pods -n de-kubernetes -o wide -l experiment=111539-237155
+NAME                          READY   STATUS    RESTARTS   AGE   IP            NODE                          NOMINATED NODE   READINESS GATES
+occupy-111539-237155-7nw5l    1/1     Running   0          7s    10.244.0.40   de-kubernetes-control-plane   <none>           <none>
+waiting-111539-237155-clpsg   0/1     Pending   0          1s    <none>        <none>                        <none>           <none>
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes delete job occupy-111539-237155 -n de-kubernetes --wait=true
+job.batch "occupy-111539-237155" deleted from de-kubernetes namespace
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes get pods -n de-kubernetes -o wide -l experiment=111539-237155
+NAME                          READY   STATUS    RESTARTS   AGE   IP            NODE                          NOMINATED NODE   READINESS GATES
+waiting-111539-237155-clpsg   1/1     Running   0          7s    10.244.0.41   de-kubernetes-control-plane   <none>           <none>
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes wait --for=condition=complete job/waiting-111539-237155 -n de-kubernetes --timeout=90s
+job.batch/waiting-111539-237155 condition met
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes apply -f -
+job.batch/low-111539-237155 created
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes get pods -n de-kubernetes -o wide -l experiment=111539-237155
+NAME                          READY   STATUS      RESTARTS   AGE   IP            NODE                          NOMINATED NODE   READINESS GATES
+low-111539-237155-c4gpq       1/1     Running     0          3s    10.244.0.42   de-kubernetes-control-plane   <none>           <none>
+waiting-111539-237155-clpsg   0/1     Completed   0          32s   10.244.0.41   de-kubernetes-control-plane   <none>           <none>
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes apply -f -
+job.batch/high-111539-237155 created
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes get pods -n de-kubernetes -o wide -l experiment=111539-237155
+NAME                          READY   STATUS      RESTARTS   AGE   IP            NODE                          NOMINATED NODE   READINESS GATES
+high-111539-237155-xllkv      1/1     Running     0          5s    10.244.0.43   de-kubernetes-control-plane   <none>           <none>
+waiting-111539-237155-clpsg   0/1     Completed   0          37s   10.244.0.41   de-kubernetes-control-plane   <none>           <none>
+вытеснен: low-111539-237155-c4gpq приоритет 100; новая задача: приоритет 10000
+событие: Preempted Preempted by pod 6ccf5d7c-9c4d-4bc6-88d6-2c2ddd3aa9b5 on node de-kubernetes-control-plane
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes wait --for=condition=complete job/high-111539-237155 -n de-kubernetes --timeout=90s
+job.batch/high-111539-237155 condition met
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes delete job low-111539-237155 -n de-kubernetes --wait=true
+job.batch "low-111539-237155" deleted from de-kubernetes namespace
+результаты: results/20261118-111539-237155-scheduling
+журнал: logs/20261118-111539-237155-scheduling

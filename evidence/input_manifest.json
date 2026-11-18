@@ -1,0 +1,31 @@
+{
+  "source_sha256": "303db922b541e4440906f5a7e8be32fb55e8808f950ffddb8c272f1548212a65",
+  "source_rows": 229388,
+  "partitioning": "CSV rows round-robin; headers retained; every row once",
+  "parts": [
+    {
+      "key": "input/part-0.csv",
+      "rows": 57347,
+      "bytes": 211924757,
+      "sha256": "2626b847389be75c81e5a877f6b4476ac27f85432269d459a4198350a5403a7f"
+    },
+    {
+      "key": "input/part-1.csv",
+      "rows": 57347,
+      "bytes": 211842147,
+      "sha256": "17d5777352274e94146eca2923ad1d9dc5625e5a9bf867abb04daf705d2fa5be"
+    },
+    {
+      "key": "input/part-2.csv",
+      "rows": 57347,
+      "bytes": 211924078,
+      "sha256": "bda50dc954e73dd8c62d526096d2ea72ce42f3ddfe4531f5b8ee430b402fc3b0"
+    },
+    {
+      "key": "input/part-3.csv",
+      "rows": 57347,
+      "bytes": 212158460,
+      "sha256": "8e9e626b84cc740941214fc8a65688e1ff9b76822e95a3d47211b287181448f6"
+    }
+  ]
+}

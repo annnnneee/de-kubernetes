@@ -1,0 +1,28 @@
+время: 2026-11-18T10:44:16.168709+03:00
+запуск: 20261118-104416-168168-quota
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes apply -f manifests/quota.yaml
+resourcequota/compute created
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes delete pods -n de-kubernetes-quota -l homework=kubernetes --ignore-not-found=true
+No resources found
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes apply -f -
+pod/quota-first-104416-168168 created
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes create -f -
+Error from server (Forbidden): error when creating "STDIN": pods "quota-second-104416-168168" is forbidden: exceeded quota: compute, requested: requests.cpu=200m, used: requests.cpu=200m, limited: requests.cpu=300m
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes describe resourcequota compute -n de-kubernetes-quota
+Name:            compute
+Namespace:       de-kubernetes-quota
+Resource         Used   Hard
+--------         ----   ----
+limits.cpu       200m   1
+limits.memory    128Mi  512Mi
+pods             1      2
+requests.cpu     200m   300m
+requests.memory  64Mi   256Mi
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes get pods -n de-kubernetes-quota -o wide
+NAME                        READY   STATUS              RESTARTS   AGE   IP       NODE                          NOMINATED NODE   READINESS GATES
+quota-first-104416-168168   0/1     ContainerCreating   0          1s    <none>   de-kubernetes-control-plane   <none>           <none>
+первая заявка: 200m; вторая: 200m; квота: 300m; вторая отклонена API, Pod не создан
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes delete pod quota-first-104416-168168 -n de-kubernetes-quota --wait=true
+pod "quota-first-104416-168168" deleted from de-kubernetes-quota namespace
+результаты: results/20261118-104416-168168-quota
+журнал: logs/20261118-104416-168168-quota

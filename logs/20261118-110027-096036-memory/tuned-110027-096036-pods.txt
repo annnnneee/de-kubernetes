@@ -1,0 +1,2 @@
+NAME                        READY   STATUS      RESTARTS   AGE   IP            NODE                          NOMINATED NODE   READINESS GATES
+tuned-110027-096036-jp4hk   0/1     Completed   0          53s   10.244.0.31   de-kubernetes-control-plane   <none>           <none>

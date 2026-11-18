@@ -1,0 +1,72 @@
+Name:             profile-103813-339720-h85v7
+Namespace:        de-kubernetes
+Priority:         0
+Service Account:  default
+Node:             de-kubernetes-control-plane/172.29.0.2
+Start Time:       Wed, 18 Nov 2026 10:39:10 +0300
+Labels:           batch.kubernetes.io/controller-uid=f7a5cc7d-94de-455f-8092-37461f78287a
+                  batch.kubernetes.io/job-name=profile-103813-339720
+                  controller-uid=f7a5cc7d-94de-455f-8092-37461f78287a
+                  homework=kubernetes
+                  job-name=profile-103813-339720
+Annotations:      <none>
+Status:           Succeeded
+IP:               10.244.0.6
+IPs:
+  IP:           10.244.0.6
+Controlled By:  Job/profile-103813-339720
+Containers:
+  calculate:
+    Container ID:  containerd://4704da2712b182ba33fe3bb07e3734e302ccd151c474dcda6630218943b78cd6
+    Image:         de-skills:hw5
+    Image ID:      sha256:bf131c01b92f20ab5dc350d85a76ad47b2400cc33319df75dd67fb005a54fc41
+    Port:          <none>
+    Host Port:     <none>
+    Args:
+      local
+    State:          Terminated
+      Reason:       Completed
+      Exit Code:    0
+      Started:      Wed, 18 Nov 2026 10:39:11 +0300
+      Finished:     Wed, 18 Nov 2026 10:39:24 +0300
+    Ready:          False
+    Restart Count:  0
+    Limits:
+      cpu:     1
+      memory:  512Mi
+    Requests:
+      cpu:        250m
+      memory:     32Mi
+    Environment:  <none>
+    Mounts:
+      /input/vacancies.csv from input (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-2kwj5 (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   False 
+  Initialized                 True 
+  Ready                       False 
+  ContainersReady             False 
+  PodScheduled                True 
+Volumes:
+  input:
+    Type:          HostPath (bare host directory volume)
+    Path:          /dataset/vacancies.csv
+    HostPathType:  File
+  kube-api-access-2kwj5:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   Burstable
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  17s   default-scheduler  Successfully assigned de-kubernetes/profile-103813-339720-h85v7 to de-kubernetes-control-plane
+  Normal  Pulled     16s   kubelet            Container image "de-skills:hw5" already present on machine
+  Normal  Created    16s   kubelet            Created container: calculate
+  Normal  Started    16s   kubelet            Started container calculate

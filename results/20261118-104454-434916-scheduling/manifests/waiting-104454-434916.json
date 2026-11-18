@@ -1,0 +1,45 @@
+{
+  "apiVersion": "batch/v1",
+  "kind": "Job",
+  "metadata": {
+    "name": "waiting-104454-434916",
+    "namespace": "de-kubernetes"
+  },
+  "spec": {
+    "backoffLimit": 0,
+    "activeDeadlineSeconds": 360,
+    "template": {
+      "metadata": {
+        "labels": {
+          "homework": "kubernetes"
+        }
+      },
+      "spec": {
+        "restartPolicy": "Never",
+        "terminationGracePeriodSeconds": 1,
+        "containers": [
+          {
+            "name": "hold",
+            "image": "de-skills:hw5",
+            "imagePullPolicy": "Never",
+            "args": [
+              "hold",
+              "--seconds",
+              "20"
+            ],
+            "resources": {
+              "requests": {
+                "cpu": "4000m",
+                "memory": "64Mi"
+              },
+              "limits": {
+                "cpu": "4000m",
+                "memory": "128Mi"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

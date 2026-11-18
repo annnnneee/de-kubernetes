@@ -1,0 +1,77 @@
+{
+  "apiVersion": "batch/v1",
+  "kind": "Job",
+  "metadata": {
+    "name": "map-111300-660670",
+    "namespace": "de-kubernetes"
+  },
+  "spec": {
+    "backoffLimit": 0,
+    "activeDeadlineSeconds": 600,
+    "template": {
+      "spec": {
+        "restartPolicy": "Never",
+        "containers": [
+          {
+            "name": "calculate",
+            "image": "de-skills:hw5",
+            "imagePullPolicy": "Never",
+            "args": [
+              "map"
+            ],
+            "resources": {
+              "requests": {
+                "cpu": "250m",
+                "memory": "858Mi"
+              },
+              "limits": {
+                "cpu": "1",
+                "memory": "1088Mi"
+              }
+            },
+            "env": [
+              {
+                "name": "S3_ENDPOINT",
+                "value": "http://rustfs.de-kubernetes.svc.cluster.local:9000"
+              },
+              {
+                "name": "S3_BUCKET",
+                "value": "hh-lake"
+              },
+              {
+                "name": "S3_ACCESS_KEY",
+                "valueFrom": {
+                  "secretKeyRef": {
+                    "name": "s3-credentials",
+                    "key": "access-key"
+                  }
+                }
+              },
+              {
+                "name": "S3_SECRET_KEY",
+                "valueFrom": {
+                  "secretKeyRef": {
+                    "name": "s3-credentials",
+                    "key": "secret-key"
+                  }
+                }
+              },
+              {
+                "name": "RUN_PREFIX",
+                "value": "runs/20261118-111300-660670-parallel"
+              }
+            ]
+          }
+        ]
+      },
+      "metadata": {
+        "labels": {
+          "homework": "kubernetes"
+        }
+      }
+    },
+    "completionMode": "Indexed",
+    "completions": 4,
+    "parallelism": 2
+  }
+}

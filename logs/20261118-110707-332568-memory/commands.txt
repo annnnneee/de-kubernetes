@@ -1,0 +1,25 @@
+время: 2026-11-18T11:07:07.333584+03:00
+запуск: 20261118-110707-332568-memory
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes apply -f -
+job.batch/oom-110707-332568 created
+oom-110707-332568 Failed [('OOMKilled', 137)]
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes get pods -n de-kubernetes -o wide -l job-name=oom-110707-332568
+NAME                      READY   STATUS      RESTARTS   AGE   IP            NODE                          NOMINATED NODE   READINESS GATES
+oom-110707-332568-z5km5   0/1     OOMKilled   0          8s    10.244.0.32   de-kubernetes-control-plane   <none>           <none>
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes apply -f -
+job.batch/profile-110707-332568 created
+profile-110707-332568 Succeeded [('Completed', 0)]
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes get pods -n de-kubernetes -o wide -l job-name=profile-110707-332568
+NAME                          READY   STATUS      RESTARTS   AGE   IP            NODE                          NOMINATED NODE   READINESS GATES
+profile-110707-332568-ztgq7   0/1     Completed   0          30s   10.244.0.33   de-kubernetes-control-plane   <none>           <none>
+пик cgroup: 857.84 MiB; RSS: 98.26 MiB
+предел = ceil(пик × 1.25 / 16 MiB) × 16 MiB = 1088 MiB
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes apply -f -
+job.batch/tuned-110707-332568 created
+tuned-110707-332568 Succeeded [('Completed', 0)]
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes get pods -n de-kubernetes -o wide -l job-name=tuned-110707-332568
+NAME                        READY   STATUS      RESTARTS   AGE   IP            NODE                          NOMINATED NODE   READINESS GATES
+tuned-110707-332568-mbtdz   0/1     Completed   0          33s   10.244.0.34   de-kubernetes-control-plane   <none>           <none>
+OOMKilled подтверждён, с пределом расчёт завершён, совпадение с ДЗ № 3: True
+результаты: results/20261118-110707-332568-memory
+журнал: logs/20261118-110707-332568-memory

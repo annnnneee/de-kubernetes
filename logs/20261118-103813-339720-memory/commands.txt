@@ -1,0 +1,28 @@
+время: 2026-11-18T10:38:13.340205+03:00
+запуск: 20261118-103813-339720-memory
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes apply -f -
+job.batch/oom-103813-339720 created
+oom-103813-339720 Failed [('OOMKilled', 137)]
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes get pods -n de-kubernetes -o wide
+NAME                      READY   STATUS      RESTARTS   AGE   IP           NODE                          NOMINATED NODE   READINESS GATES
+oom-103813-339720-xmjgs   0/1     OOMKilled   0          57s   10.244.0.5   de-kubernetes-control-plane   <none>           <none>
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes apply -f -
+job.batch/profile-103813-339720 created
+profile-103813-339720 Succeeded [('Completed', 0)]
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes get pods -n de-kubernetes -o wide
+NAME                          READY   STATUS      RESTARTS   AGE   IP           NODE                          NOMINATED NODE   READINESS GATES
+oom-103813-339720-xmjgs       0/1     OOMKilled   0          74s   10.244.0.5   de-kubernetes-control-plane   <none>           <none>
+profile-103813-339720-h85v7   0/1     Completed   0          17s   10.244.0.6   de-kubernetes-control-plane   <none>           <none>
+пик cgroup: 512.00 MiB; RSS: 78.65 MiB
+предел = ceil(пик × 1.25 / 16 MiB) × 16 MiB = 640 MiB
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes apply -f -
+job.batch/tuned-103813-339720 created
+tuned-103813-339720 Succeeded [('Completed', 0)]
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes get pods -n de-kubernetes -o wide
+NAME                          READY   STATUS      RESTARTS   AGE   IP           NODE                          NOMINATED NODE   READINESS GATES
+oom-103813-339720-xmjgs       0/1     OOMKilled   0          90s   10.244.0.5   de-kubernetes-control-plane   <none>           <none>
+profile-103813-339720-h85v7   0/1     Completed   0          33s   10.244.0.6   de-kubernetes-control-plane   <none>           <none>
+tuned-103813-339720-w2cwj     0/1     Completed   0          15s   10.244.0.7   de-kubernetes-control-plane   <none>           <none>
+OOMKilled подтверждён; с подобранным пределом расчёт завершён; совпадение с ДЗ № 3: True
+результаты: results/20261118-103813-339720-memory
+журнал: logs/20261118-103813-339720-memory

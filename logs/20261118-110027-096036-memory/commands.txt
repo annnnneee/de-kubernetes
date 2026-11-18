@@ -1,0 +1,25 @@
+время: 2026-11-18T11:00:27.097907+03:00
+запуск: 20261118-110027-096036-memory
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes apply -f -
+job.batch/oom-110027-096036 created
+oom-110027-096036 Failed [('OOMKilled', 137)]
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes get pods -n de-kubernetes -o wide -l job-name=oom-110027-096036
+NAME                      READY   STATUS      RESTARTS   AGE   IP            NODE                          NOMINATED NODE   READINESS GATES
+oom-110027-096036-bxg6q   0/1     OOMKilled   0          8s    10.244.0.29   de-kubernetes-control-plane   <none>           <none>
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes apply -f -
+job.batch/profile-110027-096036 created
+profile-110027-096036 Succeeded [('Completed', 0)]
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes get pods -n de-kubernetes -o wide -l job-name=profile-110027-096036
+NAME                          READY   STATUS      RESTARTS   AGE   IP            NODE                          NOMINATED NODE   READINESS GATES
+profile-110027-096036-kcrvc   0/1     Completed   0          33s   10.244.0.30   de-kubernetes-control-plane   <none>           <none>
+пик cgroup: 898.43 MiB; RSS: 96.72 MiB
+предел = ceil(пик × 1.25 / 16 MiB) × 16 MiB = 1136 MiB
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes apply -f -
+job.batch/tuned-110027-096036 created
+tuned-110027-096036 Succeeded [('Completed', 0)]
+$ kubectl --kubeconfig data/kubeconfig --context kind-de-kubernetes get pods -n de-kubernetes -o wide -l job-name=tuned-110027-096036
+NAME                        READY   STATUS      RESTARTS   AGE   IP            NODE                          NOMINATED NODE   READINESS GATES
+tuned-110027-096036-jp4hk   0/1     Completed   0          53s   10.244.0.31   de-kubernetes-control-plane   <none>           <none>
+OOMKilled подтверждён; с подобранным пределом расчёт завершён; совпадение с ДЗ № 3: True
+результаты: results/20261118-110027-096036-memory
+журнал: logs/20261118-110027-096036-memory

@@ -1,0 +1,106 @@
+{
+  "apiVersion": "v1",
+  "items": [
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-18T07:44:16Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "name": "quota-first-104416-168168",
+        "namespace": "de-kubernetes-quota",
+        "resourceVersion": "1419",
+        "uid": "c09eaa1b-6bb5-4fb9-aa8b-60e05b91cec5"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-18T07:44:16Z",
+      "message": "Successfully assigned de-kubernetes-quota/quota-first-104416-168168 to de-kubernetes-control-plane",
+      "metadata": {
+        "creationTimestamp": "2026-11-18T07:44:16Z",
+        "name": "quota-first-104416-168168.18e913f2042eba6a",
+        "namespace": "de-kubernetes-quota",
+        "resourceVersion": "1421",
+        "uid": "e2999318-29b6-49bc-a176-7a9dc02ee5e2"
+      },
+      "reason": "Scheduled",
+      "reportingComponent": "default-scheduler",
+      "reportingInstance": "",
+      "source": {
+        "component": "default-scheduler"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-18T07:44:17Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{hold}",
+        "kind": "Pod",
+        "name": "quota-first-104416-168168",
+        "namespace": "de-kubernetes-quota",
+        "resourceVersion": "1420",
+        "uid": "c09eaa1b-6bb5-4fb9-aa8b-60e05b91cec5"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-18T07:44:17Z",
+      "message": "Container image \"de-skills:hw5\" already present on machine",
+      "metadata": {
+        "creationTimestamp": "2026-11-18T07:44:17Z",
+        "name": "quota-first-104416-168168.18e913f2233889db",
+        "namespace": "de-kubernetes-quota",
+        "resourceVersion": "1424",
+        "uid": "16d6214d-2dc9-4d73-88ad-524ff6a50b6f"
+      },
+      "reason": "Pulled",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "de-kubernetes-control-plane",
+      "source": {
+        "component": "kubelet",
+        "host": "de-kubernetes-control-plane"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-18T07:44:17Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{hold}",
+        "kind": "Pod",
+        "name": "quota-first-104416-168168",
+        "namespace": "de-kubernetes-quota",
+        "resourceVersion": "1420",
+        "uid": "c09eaa1b-6bb5-4fb9-aa8b-60e05b91cec5"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-18T07:44:17Z",
+      "message": "Created container: hold",
+      "metadata": {
+        "creationTimestamp": "2026-11-18T07:44:17Z",
+        "name": "quota-first-104416-168168.18e913f2259971e7",
+        "namespace": "de-kubernetes-quota",
+        "resourceVersion": "1425",
+        "uid": "617d0c69-0ec7-4faa-ac8d-911d849de96d"
+      },
+      "reason": "Created",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "de-kubernetes-control-plane",
+      "source": {
+        "component": "kubelet",
+        "host": "de-kubernetes-control-plane"
+      },
+      "type": "Normal"
+    }
+  ],
+  "kind": "List",
+  "metadata": {
+    "resourceVersion": ""
+  }
+}
